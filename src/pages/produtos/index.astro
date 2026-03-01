@@ -1,0 +1,26 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { getWhatsAppUrl, CONTACT_INFO } from '../assets/js/contact-utils';
+
+const waUrl = getWhatsAppUrl(CONTACT_INFO.whatsapp.defaultMessage);
+---
+
+<MainLayout title="Produtos | All Solution Systems" description="Nossos produtos">
+  <section class="container" style="padding: var(--spacing-12) var(--spacing-4);">
+    <h1>Nossos Produtos</h1>
+    <p style="margin-top: var(--spacing-4); color: var(--color-text-muted);">
+      Visão geral das nossas ferramentas tecnológicas. <a href={waUrl} target="_blank" style="color: var(--color-primary); text-decoration: underline;">Fale com um consultor</a>.
+    </p>
+
+    <!-- Exemplo listando o B20 como sub-produto (Nginx/SSG) -->
+    <div style="margin-top: var(--spacing-8);">
+      <article style="padding: var(--spacing-6); background: var(--color-background-alt); border-radius: var(--radius-md);">
+        <h2>O Ecossistema B20</h2>
+         <p style="margin-top: var(--spacing-2); margin-bottom: var(--spacing-4); color: var(--color-text-muted);">
+            Descubra as vantagens do nosso produto base.
+         </p>
+         <a href="/b20" class="btn btn-primary" style="background-color: var(--color-primary); color: white; padding: var(--spacing-2) var(--spacing-4); border-radius: var(--radius-sm); display: inline-block;">Ver Detalhes Oficiais</a>
+      </article>
+    </div>
+  </section>
+</MainLayout>

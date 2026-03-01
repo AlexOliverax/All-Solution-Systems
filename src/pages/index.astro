@@ -1,0 +1,25 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { getWhatsAppUrl, CONTACT_INFO } from '../assets/js/contact-utils';
+
+// Pre-renderiza URL fallback para o CTA principal
+const whatsappUrl = getWhatsAppUrl(CONTACT_INFO.whatsapp.defaultMessage);
+---
+
+<MainLayout title="Automação e Engenharia Inteligente" description="A All Solution Systems conecta seu negócio ao futuro com soluções sob medida de engenharia de software e automação. Otimize seus processos através da tecnologia B20.">
+  <section class="hero text-center" style="padding: var(--spacing-16) var(--spacing-4);">
+    <div class="container">
+      <h1>All Solution Systems</h1>
+      <p style="margin-top: var(--spacing-4); color: var(--color-text-muted); font-size: 1.25rem;">
+        Site em Desenvolvimento - Arquitetura Astro (SSG) Ultra Rápida
+      </p>
+      
+      <div style="margin-top: var(--spacing-8);">
+        <!-- Fallback puro de HTML conforme exigido. Funciona sem JS! -->
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style="background-color: var(--color-whatsapp); color: white; padding: var(--spacing-3) var(--spacing-6); border-radius: var(--radius-sm); font-weight: 500; display: inline-block;">
+          Falar com Especialista
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
