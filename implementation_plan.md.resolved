@@ -1,0 +1,109 @@
+# Plano de Implementação: All Solution Systems (Institucional + Produtos)
+
+Este documento detalha o plano de desenvolvimento do novo site institucional da All Solution Systems, baseado no brief técnico fornecido e no design UI (Stitch ID: 14286821122847765727).
+
+## Objetivo
+Recriar o site combinando máxima performance e SEO (para páginas de marketing) com interatividade leve apenas onde estritamente necessário (como nos widgets de agendamento), garantindo um deploy simples (arquivos estáticos servidos via Caddy).
+
+## Decisões Arquiteturais e Stack
+* **Framework Core:** Astro (SSG - Static Site Generation)
+* **Interatividade (Ilhas):** React/Vite (apenas para client-side específico como o form de contato) ou Vanilla JS para coisas simples como tabs.
+* **Estilização:** CSS Vanilla ou Tailwind CSS (a definir conforme necessidade do design, mas vamos priorizar CSS limpo para manter leveza, seguindo guidelines do projeto).
+* **Hospedagem:** VPS com Caddy Server apontando para o diretório `/opt/company-site/`.
+
+## Estrutura do Projeto (Astro)
+
+O repositório seguirá a estrutura padrão do Astro, organizada para facilitar a escalabilidade:
+
+```text
+/
+├── public/                 # Assets não processados (favicon, mídia pesada)
+│   └── assets/
+│       └── media/
+│           └── agendamento-demo-v1.mp4  # Vídeo exigido no brief
+├── src/
+│   ├── assets/             # Assets processados pelo Astro (imagens otimizadas, css global)
+│   │   ├── css/
+│   │   ├── img/
+│   │   └── js/
+│   ├── components/         # Componentes estáticos (Astro) e interativos (React/Vanilla)
+│   │   ├── ui/             # Botões, Cards, Inputs
+│   │   ├── layout/         # Header, Footer, Hero
+│   │   └── marketing/      # Formulário de Contato, Widget de Agendamento
+│   ├── layouts/            # Layout base da página (Head tags, SEO padronizado)
+│   └── pages/              # Rotas da aplicação (SSG)
+│       ├── index.astro     # / (Home)
+│       ├── servicos/
+│       │   └── index.astro # /servicos/
+│       ├── produtos/
+│       │   └── index.astro # /produtos/
+│       ├── casos-de-uso/
+│       │   └── index.astro # /casos-de-uso/
+│       ├── agendamento/
+│       │   └── index.astro # /agendamento/
+│       ├── b20/
+│       │   └── index.astro # /b20/
+│       ├── sobre/
+│       │   └── index.astro # /sobre/
+│       ├── contato/
+│       │   └── index.astro # /contato/
+│       └── privacidade/
+│           └── index.astro # /privacidade/
+├── package.json
+├── astro.config.mjs
+└── tsconfig.json
+```
+
+## Fases de Desenvolvimento
+
+### Fase 1: Setup da Infraestrutura e Layout Base
+1. Inicializar o projeto Astro puro (sem dependências extras desnecessárias).
+2. Configurar o arquivo `LayoutBase.astro` contendo toda a estrutura de `<head>`, metas de SEO dinâmicas (Title, Description, OG Tags), e a estrutura semântica (Header, Main, Footer).
+3. Criar a estrutura de diretórios e arquivos vazios para todas as rotas exigidas no brief.
+
+### Fase 2: Implementação de Componentes Globais e UI Elements
+1. **Design System:** Implementar variáveis CSS baseadas no design do Stitch (cores, tipografia "Inter", espaçamentos "Round Eight").
+2. **Componentes base:** `<Button />`, `<Link />`, `<Card />`.
+3. **CTAs Globais:** Implementar o componente de botão do WhatsApp (CTA primário) e o botão secundário (Telegram/etc).
+4. **Header & Footer:** Construir a navegação principal, garantindo que seja responsiva e acessível.
+
+### Fase 3: Páginas Institucionais (SSG Puro)
+1. **Home (`/`):** Construir o Hero (com CTAs), seções de introdução aos serviços e produtos (sem destacar apenas um), e prova social.
+2. **Sobre (`/sobre/`):** Grade de conteúdo, história da empresa.
+3. **Serviços (`/servicos/`) e Casos de Uso (`/casos-de-uso/`):** Listagem de benefícios e nichos atendidos.
+4. **Privacidade (`/privacidade/`):** Página de texto longo, focada na legibilidade.
+
+### Fase 4: Páginas Estratégicas e Interatividade
+1. **Agendamento (`/agendamento/`):**
+    * Integrar o vídeo `agendamento-demo-v1.mp4` acima da dobra.
+    * Criar o "Mini-form de 15 segundos" (Nome, Bairro/Cidade, Necessidade). 
+    * *Nota Técnica:* Este form interceptará o submit via JS (Vanilla ou React Island) para montar a URL do WhatsApp (`wa.me/...?text=...`) e redirecionar o usuário, garantindo o "fallback" correto se o JS falhar (o `action` do form apontará para um link genérico do WhatsApp).
+2. **Produto B20 (`/b20/`):** Construir a landing page detalhada do produto, com suas respectivas seções técnicas e comerciais.
+3. **Contato (`/contato/`):** Replicar o form de qualificação rápida associado aos CTAs.
+
+### Fase 5: Revisão e Otimização Automática
+* Validar métricas do Lighthouse (Performance, Acessibilidade, Melhores Práticas, SEO).
+* Confirmar a geração correta do diretório `dist/` usando o comando de build padrão do Astro.
+* Rodar os scripts de auditoria de UX e SEO garantidos pelas regras do workspace (`seo_checker.py`, `ux_audit.py`).
+
+## Plano de Verificação (QA)
+
+### Verificação Manual
+1. **Navegação Completa:** O usuário (ou em nosso caso de teste local, abrir no navegador gerado pelo comando de dev) clicará em todos os links do Header e Footer para garantir que não há rotas 404.
+2. **Auditoria Mobile:** Visualizar a página usando ferramentas responsivas do navegador testando break-points clássicos (320px, 768px, 1024px). O vídeo na página de agendamento deve reescalar corretamente.
+3. **Teste do Form de Conversão:** Preencher campos do mini-form e clicar em "Confirmar no WhatsApp". O navegador deve tentar abrir a janela do WhatsApp Web com a string de texto perfeitamente formatada contendo os dados. (Testado em `/agendamento` e `/contato`).
+
+### Verificação Sistêmica e Build
+1. **Auditoria de Build:** Executar `npm run build` e confirmar que apenas arquivos `.html`, `.css`, e `.js` essenciais são gerados na pasta `/dist/`, sem processos node persistentes.
+2. **Checker Scripts:**
+    * Rodaremos `npm run preview` seguido da invocação de nossos agentes ou scripts Python internos de validação.
+    * `python .agent/scripts/seo_checker.py dist/`
+    * Revisor via `web-design-guidelines`.
+
+---
+
+**[AÇÃO REQUERIDA DO USUÁRIO]**
+Por favor, revise o plano acima. Precisamos que você:
+1. Aprove a adoção da stack Astro + Vanilla CSS + Mini-Ilhas TS/React.
+2. Forneça o **Número do WhatsApp Central** (e caso deseje o link do Telegram) para que eu já possa embutir a constante no desenvolvimento.
+3. Forneça o vídeo `agendamento-demo-v1.mp4` (ou posso inserir um placeholder temporário na fase de desenvolvimento).

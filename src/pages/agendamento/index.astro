@@ -1,0 +1,113 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import QuickContactForm from '../../components/marketing/QuickContactForm.astro';
+---
+
+<MainLayout 
+  title="Agendamento Automatizado All Solution Systems" 
+  description="Automatize seus agendamentos via WhatsApp, conecte com seu calendário e pare de perder tempo com tarefas repetitivas. Diagnóstico grátis."
+>
+  <section class="booking-hero">
+    <div class="container hero-grid">
+      <!-- Lado Esquerdo: Copys & Form -->
+      <div class="hero-content">
+        <h1>Automação de Agendamento via WhatsApp</h1>
+        <p class="subtitle">
+          Atenda seus clientes mais rápido, sem processos manuais e 24h por dia. 
+          Multi-nicho: clínicas, imobiliárias, escritórios e autônomos.
+        </p>
+
+        <div class="form-wrapper">
+          <h2 class="form-title">Obtenha um diagnóstico do seu negócio em 15 segundos:</h2>
+          <QuickContactForm />
+        </div>
+      </div>
+
+      <!-- Lado Direito: Vídeo Demonstrativo Acima da Dobra (Desktop) -->
+      <div class="hero-media">
+        <video 
+          src="https://allsolutionsystems.com.br/assets/media/agendamento-demo-0227.mp4" 
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          controls
+          class="demo-video"
+          aria-label="Vídeo demonstrativo do Agendamento Automatizado"
+        >
+          Seu navegador não suporta a visualização de vídeos HTML5.
+        </video>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .booking-hero {
+    padding: var(--spacing-8) 0 var(--spacing-16);
+    background-color: var(--color-background);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    color: var(--color-text-main);
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+  }
+
+  .form-wrapper {
+    margin-top: var(--spacing-4);
+    background: #fff;
+  }
+
+  .form-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-4);
+    font-weight: 600;
+  }
+
+  .hero-media {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .demo-video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--color-border);
+  }
+
+  /* Responsividade: Acima da dobra lateralizado em Desktop */
+  @media (min-width: 992px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .booking-hero {
+      padding: var(--spacing-16) 0;
+    }
+  }
+</style>

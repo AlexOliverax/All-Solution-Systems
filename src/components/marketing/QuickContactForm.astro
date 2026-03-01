@@ -1,0 +1,104 @@
+---
+import { getWhatsAppUrl, CONTACT_INFO } from '../../assets/js/contact-utils';
+
+// Pre-renderizando URL fallback estática caso falhe o JS 
+const fallbackUrl = getWhatsAppUrl(CONTACT_INFO.whatsapp.defaultMessage);
+---
+
+<form action={fallbackUrl} target="_blank" class="quick-contact-form js-quick-contact-form" method="GET">
+  <!-- Adicionar form fields em grid. Utilizando CSS Variables -->
+  <div class="form-group">
+    <label for="userName">Seu Nome</label>
+    <input type="text" id="userName" name="userName" placeholder="Ex: João Silva" required />
+  </div>
+
+  <div class="form-group">
+    <label for="userLocation">Bairro/Cidade</label>
+    <input type="text" id="userLocation" name="userLocation" placeholder="Ex: Pinheiros, São Paulo" required />
+  </div>
+
+  <div class="form-group">
+    <label for="userNeed">Seu Nicho/Necessidade</label>
+    <input type="text" id="userNeed" name="userNeed" placeholder="Ex: Clínica Odontológica" required />
+  </div>
+  
+  <div class="form-group">
+    <label for="userPreference">Preferência de Contato</label>
+    <select id="userPreference" name="userPreference">
+      <option value="Qualquer Horário">Qualquer Horário</option>
+      <option value="Manhã">Manhã</option>
+      <option value="Tarde">Tarde</option>
+      <option value="Noite">Noite</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-submit-wa">
+    <span class="btn-text">Confirmar no WhatsApp</span>
+  </button>
+  
+  <p class="form-disclaimer sr-only">
+    Este botão abrirá o seu WhatsApp com uma mensagem pré-preenchida.
+  </p>
+</form>
+
+<script src="/assets/js/form-interceptor.js" is:inline defer></script>
+
+<style>
+  .quick-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    background: var(--color-background-alt);
+    padding: var(--spacing-6);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .form-group label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+  }
+
+  .form-group input, 
+  .form-group select {
+    padding: var(--spacing-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-background);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .form-group input:focus, 
+  .form-group select:focus {
+    border-color: var(--color-primary);
+  }
+
+  .btn {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    transition: opacity 0.2s, background-color 0.2s;
+  }
+
+  .btn-submit-wa {
+    background-color: var(--color-whatsapp);
+    color: white;
+    padding: var(--spacing-3) var(--spacing-6);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: var(--spacing-2);
+  }
+
+  .btn-submit-wa:hover {
+    background-color: var(--color-whatsapp-hover);
+  }
+</style>

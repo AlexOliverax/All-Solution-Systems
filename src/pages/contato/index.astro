@@ -1,0 +1,51 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import QuickContactForm from '../../components/marketing/QuickContactForm.astro';
+import { CONTACT_INFO } from '../../assets/js/contact-utils';
+---
+
+<MainLayout title="Fale Conosco | All Solution Systems" description="Entre em contato com nossa equipe para conversarmos sobre sua solução.">
+  <section class="container" style="padding: var(--spacing-12) var(--spacing-4); max-width: 900px;">
+    
+    <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-12);">
+      
+      <div>
+        <h1>Fale Conosco</h1>
+        <p style="color: var(--color-text-muted); margin-top: var(--spacing-4); margin-bottom: var(--spacing-8);">
+          Deixe nossa equipe qualificar seu projeto ou agende diretamente nos canais abaixo:
+        </p>
+        <ul style="list-style: none; padding: 0;">
+           <li style="margin-bottom: var(--spacing-4);">
+            <strong>WhatsApp:</strong> <br />
+            <a href={CONTACT_INFO.whatsapp.baseUrl} target="_blank" style="color: var(--color-primary); font-weight: 500;">
+              Chamar agora
+            </a>
+           </li>
+           <li style="margin-bottom: var(--spacing-4);">
+            <strong>Telegram:</strong> <br />
+            <a href={CONTACT_INFO.telegram.url} target="_blank" style="color: var(--color-primary); font-weight: 500;">
+              @Alexoliver191976
+            </a>
+           </li>
+        </ul>
+      </div>
+      
+      <!-- Qualificação Rapida  -->
+      <div style="background-color: var(--color-background-alt); padding: var(--spacing-6); border-radius: var(--radius-lg);">
+        <h3 style="margin-bottom: var(--spacing-4);">Não encontrou o que queria? Envie os dados:</h3>
+        <QuickContactForm />
+      </div>
+      
+    </div>
+  </section>
+</MainLayout>
+
+<!-- Responsividade Simples -->
+<style>
+  @media (min-width: 768px) {
+    div[style*="display: grid"] {
+      grid-template-columns: 1fr 1.5fr;
+      align-items: start;
+    }
+  }
+</style>

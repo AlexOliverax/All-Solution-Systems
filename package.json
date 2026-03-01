@@ -1,0 +1,21 @@
+{
+  "name": "all-solution-sytems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test:routes": "echo 'Testando rotas vitais do Dist...' && node scripts/qa-check.js",
+    "deploy:prod": "npm run build && npm run test:routes && rsync -av --delete dist/ /opt/company-site/"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "astro": "^5.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.3",
+    "typescript": "^5.9.3"
+  }
+}

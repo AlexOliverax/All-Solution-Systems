@@ -1,0 +1,22 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getWhatsAppUrl, CONTACT_INFO } from '../../assets/js/contact-utils';
+
+const waUrl = getWhatsAppUrl('Terei interesse em uma demonstração do sistema B20. Gostaria de agendar um horário.');
+---
+
+<MainLayout title="B20 | Detalhes do Produto" description="Detalhes técnicos e operacionais do nosso sistema completo B20.">
+  <section class="container" style="padding: var(--spacing-12) var(--spacing-4);">
+     <h1>Ecossistema B20</h1>
+     
+     <div style="margin-top: var(--spacing-8); display: flex; flex-direction: column; gap: var(--spacing-4);">
+       <p style="color: var(--color-text-muted);">
+         Página técnica do produto detalhando integrações, módulos do sistema (Painel, Backoffice) e rastreamento veicular/dados.
+       </p>
+       
+       <a href={waUrl} target="_blank" style="background-color: var(--color-primary); color: white; padding: var(--spacing-3) var(--spacing-6); border-radius: var(--radius-sm); font-weight: 500; align-self: flex-start;">
+         Quero uma Demo do B20
+       </a>
+     </div>
+  </section>
+</MainLayout>
