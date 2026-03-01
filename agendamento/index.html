@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agendamento automatizado | All Solution Systems</title>
+  <meta name="description" content="Agendamento automatizado com WhatsApp: triagem, confirmação, lembretes e handoff para humano quando necessário. Multi-nicho." />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body>
+  <header class="container">
+    <div class="top">
+      <strong><a href="/" style="color:inherit; text-decoration:none;">All Solution Systems</a></strong>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/agendamento/" aria-current="page">Agendamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Agendamento automatizado (WhatsApp-first)</h1>
+    <p class="lead">Multi-nicho com templates: assistência técnica, pet, estética e serviços locais. O objetivo é reduzir vai-e-volta e aumentar conversão.</p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Dois botões que convertem</h2>
+        <p>
+          <a class="btn btn--primary" href="https://wa.me/5511968628280?text=Oi!%20Vim%20da%20p%C3%A1gina%20de%20agendamento.%20Quero%20automatizar%20meu%20agendamento%20no%20WhatsApp.%20Nicho%3A%20%5Bnicho%5D.%20Bairro%3A%20%5Bbairro%5D.%20Prefiro%20%28manh%C3%A3%2Ftarde%2Fnoite%29.">Agendar pelo WhatsApp</a>
+          <a class="btn" href="https://wa.me/5511968628280?text=Oi!%20Quero%20tirar%20uma%20d%C3%BAvida%20r%C3%A1pida%20sobre%20o%20Agendamento%20automatizado.">Tirar dúvida rápida</a>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Mini-form (15s) → confirma no WhatsApp</h2>
+        <form class="form" method="get" action="https://wa.me/5511968628280" onsubmit="return false;">
+          <label>Nome
+            <input id="nome" name="nome" placeholder="Seu nome" />
+          </label>
+          <label>Bairro/Cidade
+            <input id="bairro" name="bairro" placeholder="Bairro / cidade" />
+          </label>
+          <label>Necessidade
+            <input id="need" name="need" placeholder="O que você precisa automatizar?" />
+          </label>
+          <p>
+            <a id="wpp" class="btn btn--primary" href="https://wa.me/5511968628280?text=Oi!%20Vim%20da%20p%C3%A1gina%20de%20agendamento.%20Pode%20me%20orientar%20com%20o%20melhor%20template%20e%20pr%C3%B3ximos%20passos%3F">Confirmar no WhatsApp</a>
+          </p>
+          <small class="muted">Fallback: o botão sempre funciona; com JS, ele inclui os dados do form.</small>
+        </form>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <small><a href="/">Voltar</a> • WhatsApp: +55 11 96862-8280</small>
+    </footer>
+  </main>
+
+  <script>
+    const nome = document.getElementById('nome');
+    const bairro = document.getElementById('bairro');
+    const need = document.getElementById('need');
+    const wpp = document.getElementById('wpp');
+
+    function build() {
+      const n = (nome.value || '').trim();
+      const b = (bairro.value || '').trim();
+      const k = (need.value || '').trim();
+      let msg = 'Oi! Vim da página de agendamento. ';
+      if (n) msg += `Meu nome é ${n}. `;
+      if (b) msg += `Atendo em ${b}. `;
+      if (k) msg += `Quero automatizar: ${k}. `;
+      msg += 'Pode me orientar com o melhor template e próximos passos?';
+      return msg;
+    }
+
+    function update() {
+      wpp.href = 'https://wa.me/5511968628280?text=' + encodeURIComponent(build());
+    }
+
+    ['input','change'].forEach(evt => {
+      nome.addEventListener(evt, update);
+      bairro.addEventListener(evt, update);
+      need.addEventListener(evt, update);
+    });
+
+    update();
+  </script>
+</body>
+</html>
