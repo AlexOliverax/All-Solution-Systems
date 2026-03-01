@@ -1,0 +1,33 @@
+name: "Bug"
+description: "Algo quebrado (botão, link, 404, layout)."
+labels: ["bug"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: "https://allsolutionsystems.com.br/agendamento/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Passos para reproduzir
+      placeholder: "1) ...\n2) ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+
+  - type: textarea
+    id: atual
+    attributes:
+      label: Resultado atual
+    validations:
+      required: true

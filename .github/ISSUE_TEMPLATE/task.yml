@@ -1,0 +1,41 @@
+name: "Tarefa (Antigravity)"
+description: "Fila de trabalho para o IDE Antigravity: mudanças de layout, páginas, componentes, conteúdo."
+labels: ["antigravity", "task"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - Home (/)
+        - Agendamento (/agendamento/)
+        - Produtos (/produtos/)
+        - Serviços (/servicos/)
+        - B20 (/b20/)
+        - Geral (layout/assets)
+        - SEO/Performance
+    validations:
+      required: true
+
+  - type: textarea
+    id: objetivo
+    attributes:
+      label: Objetivo (o que muda?)
+      description: "Escreva em 1-3 frases o resultado esperado."
+      placeholder: "Ex.: Ajustar hero para ficar dentro da grid e trocar CTA secundário para /produtos/."
+    validations:
+      required: true
+
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Critérios de aceite (checklist)
+      placeholder: "- Links funcionando\n- Mobile ok\n- Lighthouse > 85 (Perf/SEO)\n- CTA WhatsApp intacto"
+    validations:
+      required: true
+
+  - type: textarea
+    id: notas
+    attributes:
+      label: Notas técnicas (opcional)
+      placeholder: "Assets, paths, nomes de arquivos, restrições, etc."
