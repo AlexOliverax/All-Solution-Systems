@@ -2,19 +2,112 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import { getWhatsAppUrl } from '../../assets/js/contact-utils';
 
-const whatsappUrl = getWhatsAppUrl('Gostaria de aplicar um dos casos de uso de vocês na minha operação.');
+const whatsappUrl = getWhatsAppUrl('Olá! Vim pela página de Casos de Uso e gostaria de entender como a All Solution Systems pode aplicar uma solução no meu negócio.');
 ---
 
 <MainLayout 
-  title="Casos de Uso Multi-Nicho" 
-  description="Exemplos reais de aplicação da nossa tecnologia nos setores Automotivo, Financeiro e Retail."
+  title="Casos de Uso Multi-Nicho"
+  description="Veja como a All Solution Systems aplicou hiperintegração e automação em operações reais de clínicas, varejo, imobiliárias e prestadores de serviço."
 >
-  <section class="py-24 bg-white h-screen flex flex-col justify-center">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-6xl font-black text-dark tracking-tighter mb-6">Em breve: <span class="text-primary">Masterclass</span></h1>
-      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-12">Estamos preparando os compilados dos estudos de casos blindados que realizamos nos últimos anos focados em eficiência algorítmica.</p>
-      
-      <a href={whatsappUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">Seja Avisado Primeiro</a>
+  <!-- Hero -->
+  <section class="py-24 bg-dark text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mb-16">
+        <span class="inline-block py-1 px-3 bg-primary text-white text-sm font-bold tracking-wider uppercase mb-6 rounded-brutalist">Resultados Reais</span>
+        <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6">Operações que a gente <span class="text-primary">transformou</span></h1>
+        <p class="text-gray-400 text-xl leading-relaxed">
+          Problemas diferentes. Mesma obsessão por precisão. Abaixo os padrões de aplicação que replicamos com sucesso em múltiplos nichos e portes de empresa.
+        </p>
+      </div>
+
+      <!-- Cases Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Case 1: Clínicas/Saúde -->
+        <div class="bg-dark-light border border-gray-800 rounded-brutalist p-8 flex flex-col justify-between">
+          <div>
+            <div class="text-primary mb-6">
+              <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="square" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 mb-3 block">Clínicas &amp; Saúde</span>
+            <h2 class="text-xl font-bold mb-4">Fila zero no agendamento</h2>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Clínica com 3 médicos e recepção sobrecarregada integrou WhatsApp, Google Agenda e prontuário em um único fluxo automatizado. Tempo médio de resposta: de 40 min para 90 segundos.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> Triagem automática por especialidade</li>
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> Confirmação e lembrete 24h antes</li>
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> Fila de retorno sem intervenção humana</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Case 2: Varejo / Loja -->
+        <div class="bg-white text-dark border-2 border-transparent rounded-brutalist p-8 flex flex-col justify-between shadow-[8px_8px_0px_#135bec]">
+          <div>
+            <div class="text-dark mb-6">
+              <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="square" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 mb-3 block">Varejo &amp; E-commerce</span>
+            <h2 class="text-xl font-bold mb-4">Pós-venda que fecha sozinho</h2>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              Loja física + online com alto volume de chamados no WhatsApp. Implementamos roteador inteligente por intenção, reduzindo carga do time de suporte em 68% no 1.º mês.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> FAQ automático por categoria de produto</li>
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> Rastreamento de pedido integrado ao ERP</li>
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> Escalonamento humano por score de urgência</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Case 3: Prestadores de Serviço -->
+        <div class="bg-dark-light border border-gray-800 rounded-brutalist p-8 flex flex-col justify-between">
+          <div>
+            <div class="text-primary mb-6">
+              <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="square" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="square" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <span class="text-xs font-bold tracking-[0.2em] uppercase text-gray-500 mb-3 block">Prestadores de Serviço</span>
+            <h2 class="text-xl font-bold mb-4">Do orçamento ao pagamento, automatizado</h2>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Empresa de manutenção com 12 técnicos em campo. Criamos pipeline completo: lead no WhatsApp → qualificação → OS gerada → técnico alocado → cobrança via Pix automatizado.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-500">
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> Dispatch de técnicos por geolocalização</li>
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> Aprovação de orçamento via link seguro</li>
+              <li class="flex items-center gap-2"><span class="text-primary font-bold">→</span> NF emitida automaticamente após pagamento</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-white border-b-8 border-dark relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-50"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <h2 class="text-3xl md:text-5xl font-black text-dark tracking-tight mb-6">
+        Qual é o <span class="text-primary">seu nicho?</span>
+      </h2>
+      <p class="text-lg text-gray-600 mb-10 max-w-xl mx-auto">
+        Cada operação tem seu gargalo específico. Fale com um engenheiro para entender como o protocolo B20 se aplica ao seu contexto.
+      </p>
+      <a href={whatsappUrl} class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM15.86 15.46L14.4 17.33C14.28 17.48 14.07 17.5 13.9 17.4C11.83 16.2 10.12 14.49 8.92 12.42C8.82 12.25 8.84 12.04 8.99 11.92L10.86 10.46C11.02 10.33 11.23 10.35 11.36 10.48L12.56 12.08C12.69 12.25 12.65 12.48 12.48 12.58L11.75 13.01C12.16 13.92 12.89 14.65 13.8 15.06L14.23 14.33C14.33 14.16 14.56 14.12 14.73 14.25L16.33 15.45C16.46 15.58 16.48 15.79 16.35 15.95L15.86 15.46Z" clip-rule="evenodd" />
+        </svg>
+        Falar sobre o meu caso
+      </a>
+    </div>
+  </section>
+
 </MainLayout>

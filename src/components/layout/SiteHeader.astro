@@ -15,8 +15,8 @@ const whatsappUrl = getWhatsAppUrl();
     <!-- Checkbox Hack para Mobile Menu (Sem JS dependência vital) -->
     <input type="checkbox" id="menu-toggle" class="peer hidden" />
     
-    <label for="menu-toggle" class="lg:hidden cursor-pointer z-50 p-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <label for="menu-toggle" class="lg:hidden cursor-pointer z-50 p-2" aria-label="Abrir menu de navegação">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
         <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </label>
@@ -25,8 +25,8 @@ const whatsappUrl = getWhatsAppUrl();
     <nav class="fixed lg:static top-0 right-0 h-full w-full lg:w-auto bg-white lg:bg-transparent transform translate-x-full lg:translate-x-0 transition-transform duration-300 peer-checked:translate-x-0 flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-8 lg:gap-6 pt-20 lg:pt-0 z-40">
       
       <!-- Close Label P/ Mobile -->
-      <label for="menu-toggle" class="lg:hidden absolute top-6 right-6 cursor-pointer p-2 text-dark">
-         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <label for="menu-toggle" class="lg:hidden absolute top-6 right-6 cursor-pointer p-2 text-dark" aria-label="Fechar menu de navegação">
+         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </label>
