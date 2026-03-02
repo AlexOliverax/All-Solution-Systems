@@ -9,22 +9,42 @@
   }
 
   body {
-    @apply bg-white text-dark antialiased;
+    @apply bg-premium-surface text-premium-ink antialiased;
   }
 }
 
 @layer components {
-
-  /* Padrão exigido pelo usuário no PR */
+  /* Premium buttons (B20-style) */
   .btn-primary {
-    @apply inline-flex justify-center items-center px-6 py-3 bg-primary text-white font-medium rounded-brutalist transition-all duration-300 hover:bg-primary-hover hover:-translate-y-0.5 shadow-sm;
+    @apply inline-flex justify-center items-center px-7 py-3.5 font-semibold rounded-pill transition-all duration-300;
+    @apply text-white shadow-[0_14px_35px_rgba(59,130,246,0.25)];
+    @apply bg-gradient-to-r from-brand-purple to-brand-blue;
+    @apply hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(106,90,249,0.25)];
+    @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue;
   }
 
   .btn-secondary {
-    @apply inline-flex justify-center items-center px-6 py-3 bg-white text-primary font-medium rounded-brutalist border-2 border-primary transition-all duration-300 hover:bg-primary-light hover:-translate-y-0.5;
+    @apply inline-flex justify-center items-center px-7 py-3.5 font-semibold rounded-pill transition-all duration-300;
+    @apply bg-white/80 backdrop-blur border border-premium-stroke text-premium-ink;
+    @apply hover:-translate-y-0.5 hover:bg-white;
+    @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue;
   }
 
   .btn-whatsapp {
-    @apply inline-flex justify-center items-center gap-2 px-6 py-3 bg-accent-whatsapp text-white font-semibold rounded-soft transition-all duration-300 hover:bg-accent-whatsappHover hover:shadow-md hover:-translate-y-1;
+    @apply inline-flex justify-center items-center gap-2 px-7 py-3.5 font-semibold rounded-pill transition-all duration-300;
+    @apply bg-accent-whatsapp text-white shadow-[0_14px_35px_rgba(37,211,102,0.18)];
+    @apply hover:-translate-y-0.5 hover:bg-accent-whatsappHover;
+    @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-whatsapp;
+  }
+
+  /* Premium UI primitives */
+  .card-premium {
+    @apply rounded-card bg-white border border-premium-stroke;
+    @apply shadow-[0_20px_60px_rgba(15,23,42,0.10)];
+  }
+
+  .chip-premium {
+    @apply inline-flex items-center rounded-pill px-4 py-1.5 text-xs font-semibold;
+    @apply bg-premium-surface2 border border-premium-stroke text-premium-ink;
   }
 }
