@@ -23,20 +23,32 @@ const whatsappUrl = getWhatsAppUrl('Desejo confirmar meu diagnóstico/agendament
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-        <!-- Coluna de Vídeo (Acima da Dobra Requirement DoD) -->
-        <div class="w-full bg-black rounded-lg overflow-hidden border border-gray-800 shadow-2xl relative">
-          <!-- TODO Placeholder para demo em produção, apontando para arquivo local como exigido -->
-          <video 
-            class="w-full aspect-video bg-black object-contain max-h-[420px] md:max-h-none"
-            preload="metadata"
-            playsinline
-            controls
-            poster="/assets/img/video-poster.jpg"
-          >
-            <!-- Simulando arquivo versionado do DoD -->
-            <source src="/assets/video/agendamento-0227.mp4" type="video/mp4" />
-            Seu navegador não suporta a visualização deste vídeo.
-          </video>
+        <!-- Coluna de Vídeo (mock de celular no desktop) -->
+        <div class="w-full flex justify-center lg:justify-start">
+          <div class="relative w-full max-w-[360px] sm:max-w-[380px]">
+            <!-- Phone frame -->
+            <div class="relative rounded-[2.2rem] border-[10px] border-[#0B0F1A] bg-[#0B0F1A] shadow-2xl overflow-hidden">
+              <!-- Notch -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 mt-2 h-6 w-32 rounded-full bg-black/70"></div>
+
+              <!-- Screen -->
+              <div class="bg-black">
+                <video
+                  class="w-full aspect-[9/16] bg-black object-contain"
+                  preload="metadata"
+                  playsinline
+                  controls
+                  poster="/assets/img/video-poster.jpg"
+                >
+                  <source src="/assets/video/agendamento-0227.mp4" type="video/mp4" />
+                  Seu navegador não suporta a visualização deste vídeo.
+                </video>
+              </div>
+            </div>
+
+            <!-- small caption -->
+            <p class="mt-3 text-xs text-gray-500">Demonstração (visual mobile) • 52s</p>
+          </div>
         </div>
 
         <!-- Coluna de Mini Form (Confirmar no WhatsApp via Fallback HTML) -->
