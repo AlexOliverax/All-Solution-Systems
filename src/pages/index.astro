@@ -1,147 +1,43 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import HeroShowcase from '../components/marketing/HeroShowcase.astro';
 import { getWhatsAppUrl, CONTACT_INFO } from '../assets/js/contact-utils';
 
 const whatsappUrl = getWhatsAppUrl('Olá, vim pela Home do site e gostaria de conversar com um especialista.');
 const telegramUrl = CONTACT_INFO.telegram.url;
 ---
 
-<MainLayout 
-  title="Soluções em Automação e Engenharia Inteligente" 
-  description="A All Solution Systems conecta seu negócio ao futuro com soluções sob medida de engenharia de software, automação e arquitetura digital."
->
-  <!-- Hero Section Brutalist / Asymetry -->
-  <section class="min-h-[85vh] flex items-center relative overflow-hidden bg-white">
-    <!-- Decorator Background -->
-    <div class="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-32 hidden lg:block -z-10"></div>
-    
-    <div class="container mx-auto px-4 z-10 py-20 lg:py-0">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Content Side (8 cols) -->
-        <div class="lg:col-span-8">
-          <span class="inline-block py-1 px-3 bg-primary text-white text-sm font-bold tracking-wider uppercase mb-6 rounded-brutalist">Engenharia do Futuro</span>
-          
-          <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-dark leading-tight mb-6 tracking-tighter">
-            Hiperintegração <br/>
-            <span class="text-primary">Especializada</span>
-          </h1>
-          
-          <p class="text-xl text-gray-600 mb-10 max-w-2xl leading-relaxed">
-            Eliminamos gargalos operacionais construindo pontes sólidas entre seus sistemas. Do design de infraestrutura escalável a automação de vendas.
-          </p>
-          
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href={whatsappUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">
-              Falar com Engenheiro
-            </a>
-            <a href="/casos-de-uso/" class="btn-secondary">
-              Ver Casos Reais
-            </a>
-          </div>
-        </div>
+<MainLayout title="Soluções em Automação e Engenharia Inteligente | All Solution Systems" description="A All Solution Systems conecta seu negócio ao futuro com soluções sob medida de engenharia de software, automação e arquitetura digital.">
+  <HeroShowcase />
 
-        <!-- Visual Side (4 cols) -->
-        <div class="lg:col-span-4 hidden lg:flex justify-end">
-          <div class="relative w-full aspect-square border-4 border-dark rounded-brutalist shadow-[16px_16px_0px_#135bec] p-8 flex flex-col justify-between bg-white transform rotate-2">
-            <div>
-              <div class="w-12 h-12 bg-dark rounded-brutalist mb-4"></div>
-              <h3 class="text-2xl font-black uppercase text-dark">Data Flow</h3>
-            </div>
-            <p class="text-sm font-medium text-gray-500 uppercase tracking-widest text-right">System Online</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Hub de Soluções (Atendendo ao DoD 4) -->
-  <section class="py-24 bg-dark text-white relative">
+  <section id="explorar" class="py-20 bg-dark text-white">
     <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div class="flex flex-col md:flex-row items-end justify-between gap-6">
         <div class="max-w-3xl">
-          <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-4">Núcleo Estratégico</h2>
-          <p class="text-gray-400 text-lg">Soluções arquitetadas para escala empresarial e resolução de gargalos sistêmicos de alta criticidade.</p>
+          <h2 class="text-4xl md:text-5xl font-black tracking-tight">Escolha por dor, não por buzzword</h2>
+          <p class="mt-4 text-gray-300 text-lg">Toque em uma solução e veja exemplos e próximos passos.</p>
         </div>
-        <a href="/servicos/" class="text-primary-light hover:text-white border-b-2 border-primary-light font-bold pb-1 transition-colors whitespace-nowrap">
-          Todos os Serviços →
-        </a>
+        <a href="/servicos/" class="text-primary-light hover:text-white border-b-2 border-primary-light font-bold pb-1 transition-colors">Todos os Serviços →</a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Solution 1 -->
-        <a href="/b20/" class="group bg-dark-light p-8 rounded-brutalist border border-gray-800 hover:border-primary transition-colors block h-full flex flex-col justify-between">
-          <div>
-            <div class="text-primary mb-6">
-              <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Tecnologia B20</h3>
-            <p class="text-gray-400">Implementação de sistema proprietário B20 para gestão unificada, telemetria profunda e alta disponibilidade estruturada.</p>
-          </div>
-          <span class="inline-block mt-8 font-bold text-sm tracking-widest uppercase group-hover:translate-x-2 transition-transform">Descobrir +</span>
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <a href="/agendamento/" class="group bg-dark-light p-8 rounded-brutalist border border-gray-800 hover:border-primary transition-colors block">
+          <h3 class="text-2xl font-black mb-2 group-hover:text-primary transition-colors">Agendamento Automatizado</h3>
+          <p class="text-gray-400">WhatsApp-first. Triagem, confirmação, lembretes e handoff quando precisa.</p>
+          <span class="inline-block mt-6 font-bold text-sm tracking-widest uppercase group-hover:translate-x-2 transition-transform">Ver demo +</span>
         </a>
-
-        <!-- Solution 2 -->
-        <a href="/produtos/" class="group bg-white text-dark p-8 rounded-brutalist border-2 border-transparent hover:border-primary transition-colors block h-full flex flex-col justify-between shadow-[8px_8px_0px_#135bec]">
-          <div>
-            <div class="text-dark mb-6">
-              <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Sistemas Customizados</h3>
-            <p class="text-gray-600">Desenvolvimento de ponta a ponta (Web, Mobile, APIs) sob uma arquitetura limpa, escalável e segura. Código que envelhece bem.</p>
-          </div>
-          <span class="inline-block mt-8 font-bold text-sm tracking-widest uppercase group-hover:translate-x-2 transition-transform text-primary">Saber mais +</span>
+        <a href="/produtos/" class="group bg-white text-dark p-8 rounded-brutalist border-2 border-transparent hover:border-primary transition-colors block shadow-[8px_8px_0px_#135bec]">
+          <h3 class="text-2xl font-black mb-2">Produtos</h3>
+          <p class="text-gray-600">Soluções prontas e evolutivas. Cada uma com uma promessa clara.</p>
+          <span class="inline-block mt-6 font-bold text-sm tracking-widest uppercase group-hover:translate-x-2 transition-transform text-primary">Explorar +</span>
         </a>
-
-        <!-- Solution 3 -->
-        <a href="/agendamento/" class="group bg-dark-light p-8 rounded-brutalist border border-gray-800 hover:border-primary transition-colors block h-full flex flex-col justify-between">
-          <div>
-            <div class="text-primary mb-6">
-              <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 class="text-2xl font-bold mb-4">Consultoria & Auditoria</h3>
-            <p class="text-gray-400">Análise estrutural de infraestrutura, code review focado em segurança defensiva e hunting de gargalos invisíveis no seu processo.</p>
-          </div>
-          <span class="inline-block mt-8 font-bold text-sm tracking-widest uppercase group-hover:translate-x-2 transition-transform">Agendar Call +</span>
+        <a href="/b20/" class="group bg-dark-light p-8 rounded-brutalist border border-gray-800 hover:border-primary transition-colors block">
+          <h3 class="text-2xl font-black mb-2 group-hover:text-primary transition-colors">B20</h3>
+          <p class="text-gray-400">Tecnologia e operação com visão de sistema. Para quem quer escala e controle.</p>
+          <span class="inline-block mt-6 font-bold text-sm tracking-widest uppercase group-hover:translate-x-2 transition-transform">Ver +</span>
         </a>
       </div>
     </div>
   </section>
-
-  <!-- CTA Universal Final -->
-  <section class="py-24 bg-white relative overflow-hidden border-b-8 border-dark">
-    <!-- Grid Pattern Background -->
-    <div class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-50"></div>
-    
-    <div class="container mx-auto px-4 text-center relative z-10">
-      <h2 class="text-4xl md:text-6xl font-black text-dark tracking-tighter mb-8">
-        Pronto para extrair <br/>
-        <span class="text-primary">resultado real</span> da tecnologia?
-      </h2>
-      <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-        Tire seu projeto do papel ou evolua seu sistema legado falando diretamente com nosso time de engenharia. Sem intermediários, sem jargão inútil.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-         <a href={whatsappUrl} class="btn-whatsapp w-full sm:w-auto" target="_blank" rel="noopener noreferrer">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM15.86 15.46L14.4 17.33C14.28 17.48 14.07 17.5 13.9 17.4C11.83 16.2 10.12 14.49 8.92 12.42C8.82 12.25 8.84 12.04 8.99 11.92L10.86 10.46C11.02 10.33 11.23 10.35 11.36 10.48L12.56 12.08C12.69 12.25 12.65 12.48 12.48 12.58L11.75 13.01C12.16 13.92 12.89 14.65 13.8 15.06L14.23 14.33C14.33 14.16 14.56 14.12 14.73 14.25L16.33 15.45C16.46 15.58 16.48 15.79 16.35 15.95L15.86 15.46Z" clip-rule="evenodd" />
-            </svg>
-            Conversar pelo WhatsApp
-         </a>
-         <a href={telegramUrl} class="px-6 py-3 font-medium text-dark hover:text-primary transition-colors flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-            Ou via Telegram
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-         </a>
-      </div>
-    </div>
-  </section>
-
 </MainLayout>
+
