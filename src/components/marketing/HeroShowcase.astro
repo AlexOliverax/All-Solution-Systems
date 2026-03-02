@@ -35,11 +35,11 @@ const photos = [
 <section class="relative overflow-hidden bg-white">
   <!-- Photo fade backdrop (CSS-only; no JS dependency) -->
   <div class="pointer-events-none absolute inset-0">
-    <div class="hero-photos absolute inset-0">
+    <div class="hero-photos absolute inset-0" style="--hero-count: 5;">
       {photos.map((src, i) => (
         <div
           class="hero-photo"
-          style={`--hero-img: url(${src}); --hero-delay: ${i * 5}s;`}
+          style={`--hero-img: url(${src}); --hero-i: ${i};`}
           aria-hidden="true"
         />
       ))}
@@ -135,8 +135,8 @@ const photos = [
       filter: saturate(1.05) contrast(1.05);
       opacity: 0;
       transform: scale(1.02);
-      animation: heroFade 20s infinite;
-      animation-delay: var(--hero-delay);
+      animation: heroFade calc(var(--hero-count) * 5s) infinite;
+      animation-delay: calc(var(--hero-i) * 5s);
     }
     @keyframes heroFade {
       0% { opacity: 0; }
