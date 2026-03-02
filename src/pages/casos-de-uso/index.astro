@@ -1,29 +1,20 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import { getWhatsAppUrl } from '../../assets/js/contact-utils';
+
+const whatsappUrl = getWhatsAppUrl('Gostaria de aplicar um dos casos de uso de vocês na minha operação.');
 ---
 
-<MainLayout title="Casos de Uso Multi-nicho | All Solution Systems" description="Nossas automações em ação nos mais variados setores mercadológicos.">
-  <section class="container" style="padding: var(--spacing-12) var(--spacing-4);">
-    <h1 style="margin-bottom: var(--spacing-6);">Casos de Uso (Multi-Nicho)</h1>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-8);">
-      <div style="padding: var(--spacing-6); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-        <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-2);">Saúde (Clínicas e Consultórios)</h3>
-        <p style="color: var(--color-text-muted);">
-          Gestão automatizada de retornos. O bot lembra o paciente, agenda sozinho e preenche a planilha do responsável de recepção com a resposta do cliente.
-        </p>
-      </div>
-      <div style="padding: var(--spacing-6); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-        <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-2);">Corretores e Imobiliárias</h3>
-        <p style="color: var(--color-text-muted);">
-          Integração de leads qualificados. Apresente informações primárias ao comprador ou locador usando a IA conectada na base de dados da imobiliária.
-        </p>
-      </div>
-      <div style="padding: var(--spacing-6); border: 1px solid var(--color-border); border-radius: var(--radius-lg);">
-        <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-2);">Escritórios e Autônomos</h3>
-        <p style="color: var(--color-text-muted);">
-          Desafogue suas horas focando apenas no core do negócio. Entenda de antemão qual a dor do cliente que procurou seu escritório e já agende uma consultoria direcionada.
-        </p>
-      </div>
+<MainLayout 
+  title="Casos de Uso Multi-Nicho" 
+  description="Exemplos reais de aplicação da nossa tecnologia nos setores Automotivo, Financeiro e Retail."
+>
+  <section class="py-24 bg-white h-screen flex flex-col justify-center">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-black text-dark tracking-tighter mb-6">Em breve: <span class="text-primary">Masterclass</span></h1>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-12">Estamos preparando os compilados dos estudos de casos blindados que realizamos nos últimos anos focados em eficiência algorítmica.</p>
+      
+      <a href={whatsappUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">Seja Avisado Primeiro</a>
     </div>
   </section>
 </MainLayout>

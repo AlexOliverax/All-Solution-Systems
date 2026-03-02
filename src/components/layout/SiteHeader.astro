@@ -1,0 +1,56 @@
+---
+import { getWhatsAppUrl } from '../../assets/js/contact-utils';
+
+const whatsappUrl = getWhatsAppUrl();
+---
+
+<header class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-100 transition-all duration-300">
+  <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group text-primary font-bold text-xl tracking-tight">
+      <span class="w-8 h-8 rounded-brutalist bg-primary text-white flex items-center justify-center font-black">A</span>
+      All Solution Systems
+    </a>
+
+    <!-- Checkbox Hack para Mobile Menu (Sem JS dependência vital) -->
+    <input type="checkbox" id="menu-toggle" class="peer hidden" />
+    
+    <label for="menu-toggle" class="lg:hidden cursor-pointer z-50 p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </label>
+
+    <!-- Navegação e Links -->
+    <nav class="fixed lg:static top-0 right-0 h-full w-full lg:w-auto bg-white lg:bg-transparent transform translate-x-full lg:translate-x-0 transition-transform duration-300 peer-checked:translate-x-0 flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-8 lg:gap-6 pt-20 lg:pt-0 z-40">
+      
+      <!-- Close Label P/ Mobile -->
+      <label for="menu-toggle" class="lg:hidden absolute top-6 right-6 cursor-pointer p-2 text-dark">
+         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </label>
+
+      <ul class="flex flex-col lg:flex-row items-center gap-6 lg:gap-8 w-full lg:w-auto text-center">
+        <li><a href="/servicos/" class="text-dark-light hover:text-primary font-medium transition-colors">Serviços</a></li>
+        <li><a href="/produtos/" class="text-dark-light hover:text-primary font-medium transition-colors">Produtos</a></li>
+        <li><a href="/casos-de-uso/" class="text-dark-light hover:text-primary font-medium transition-colors">Casos de Uso</a></li>
+        <li><a href="/b20/" class="text-dark-light hover:text-primary font-medium transition-colors">Tecnologia B20</a></li>
+        <li><a href="/sobre/" class="text-dark-light hover:text-primary font-medium transition-colors">Sobre</a></li>
+        <li><a href="/contato/" class="text-dark-light hover:text-primary font-medium transition-colors">Contato</a></li>
+      </ul>
+
+      <div class="flex flex-col lg:flex-row items-center gap-4 mt-8 lg:mt-0">
+        <a href={whatsappUrl} 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-primary w-full lg:w-auto">
+          Falar Especialista
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer global header fixo -->
+<div class="h-20 w-full"></div>
