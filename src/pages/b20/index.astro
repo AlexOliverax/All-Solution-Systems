@@ -2,27 +2,163 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import { getWhatsAppUrl } from '../../assets/js/contact-utils';
 
-const whatsappUrl = getWhatsAppUrl('Quero analisar a integração da arquitetura B20 na minha infraestrutura hoje.');
+const whatsappUrl = getWhatsAppUrl('Quero entender o B20 (Bridge To Developers) e iniciar o processo para meu app.');
 ---
 
-<MainLayout 
-  title="Framework B20 — Automação Avançada" 
-  description="Visão profunda técnica sobre como o protocolo B20 viabiliza integração segura de ponta a ponta"
+<MainLayout
+  title="B20 (Bridge To Developers)"
+  description="B20 é a ponte entre desenvolvedores e testadores reais: processo, operação e evidências para destravar seu ciclo e publicar com segurança."
 >
-  <section class="py-32 bg-dark text-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
-        <div class="w-16 h-16 bg-primary rounded-brutalist mb-8 shadow-[8px_8px_0px_#e8effd]"></div>
-        
-        <span class="inline-block py-1 px-4 bg-gray-800 text-gray-300 text-sm font-bold tracking-[0.2em] uppercase mb-6 rounded-soft border border-gray-700">Flagship Protocol</span>
-        
-        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-none">O Ecossistema <br/><span class="text-primary-light text-primary border-b-8 border-primary">B20</span></h1>
-        
-        <p class="text-xl md:text-2xl text-gray-400 mb-16 leading-relaxed">
-          Estrutura proprietária testada no fogo, com pipelines de orquestração construídas para garantir estabilidade absoluta, alta governança e performance zero-latency nas áreas críticas da sua operação.
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-white">
+    <div class="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(#111_1px,transparent_1px)] [background-size:18px_18px]"></div>
+    <div class="container mx-auto px-4 pt-28 pb-16 relative">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 backdrop-blur px-3 py-1 text-xs font-semibold text-gray-700">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Bridge To Developers • Devs + Testadores
+        </div>
+
+        <h1 class="mt-6 text-5xl md:text-6xl font-black tracking-tight text-dark">
+          Seu app está pronto.
+          <span class="text-primary"> O gargalo é operacional.</span>
+        </h1>
+
+        <p class="mt-5 text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl">
+          O <strong>B20</strong> é a ponte entre <strong>desenvolvedores</strong> e <strong>testadores reais</strong>.
+          A gente fecha o ciclo: recrutamento, execução, evidências e organização — sem você perder tempo caçando gente em grupo.
         </p>
 
-        <a href={whatsappUrl} class="btn-primary text-lg px-8 py-4" target="_blank" rel="noopener noreferrer">Requisitar Documentação Técnica</a>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href={whatsappUrl} class="btn-whatsapp w-full sm:w-auto" target="_blank" rel="noopener noreferrer">
+            Começar no WhatsApp
+          </a>
+          <a href="/casos-de-uso/" class="btn-secondary w-full sm:w-auto">
+            Ver casos de uso
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3 text-sm">
+          <span class="rounded-full bg-dark/5 px-3 py-1 font-semibold text-dark">SLA & cadência</span>
+          <span class="rounded-full bg-dark/5 px-3 py-1 font-semibold text-dark">Testadores verificados</span>
+          <span class="rounded-full bg-dark/5 px-3 py-1 font-semibold text-dark">Evidências e organização</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É (modelo TestesApp) -->
+  <section id="para-quem" class="py-20 bg-dark text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl">
+        <div class="text-xs font-black tracking-widest uppercase text-gray-400">Para quem é o B20</div>
+        <h2 class="mt-3 text-4xl md:text-5xl font-black tracking-tight">Não importa o tamanho do projeto. A gente resolve.</h2>
+        <p class="mt-4 text-gray-300 text-lg">Escolha o seu cenário e veja a dor + como a ponte funciona.</p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Dev Solo -->
+        <div class="bg-dark-light rounded-brutalist border border-gray-800 p-8">
+          <h3 class="text-2xl font-black">Dev Solo</h3>
+          <p class="mt-2 text-gray-400">Primeiro app travado na etapa de testes/validação.</p>
+
+          <div class="mt-6">
+            <div class="text-xs font-black tracking-widest uppercase text-gray-500">A dor</div>
+            <p class="mt-2 text-gray-200">Sem tempo pra recrutar. Sem previsibilidade. Processo confuso.</p>
+          </div>
+
+          <div class="mt-5">
+            <div class="text-xs font-black tracking-widest uppercase text-gray-500">Como resolvemos</div>
+            <p class="mt-2 text-gray-200">A gente assume o ciclo e entrega evidência organizada. Você foca no produto.</p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2 text-xs font-bold">
+            <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary-light">Rápido</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary-light">Menos stress</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary-light">Checklist</span>
+          </div>
+        </div>
+
+        <!-- Software House -->
+        <div class="bg-white text-dark rounded-brutalist border-2 border-transparent shadow-[10px_10px_0px_#135bec] p-8">
+          <h3 class="text-2xl font-black">Software House</h3>
+          <p class="mt-2 text-gray-700">Vários apps e clientes na fila.</p>
+
+          <div class="mt-6">
+            <div class="text-xs font-black tracking-widest uppercase text-gray-500">A dor</div>
+            <p class="mt-2 text-gray-800">Volume alto, prazos curtos, e cada app vira uma operação separada.</p>
+          </div>
+
+          <div class="mt-5">
+            <div class="text-xs font-black tracking-widest uppercase text-gray-500">Como resolvemos</div>
+            <p class="mt-2 text-gray-800">Cadência + padronização. Evidências por app e acompanhamento por rodada.</p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2 text-xs font-bold">
+            <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary">Multi-app</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary">Relatórios</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary">Escala</span>
+          </div>
+        </div>
+
+        <!-- Empresa -->
+        <div class="bg-dark-light rounded-brutalist border border-gray-800 p-8">
+          <h3 class="text-2xl font-black">Empresa</h3>
+          <p class="mt-2 text-gray-400">Deadline não espera validação/trava operacional.</p>
+
+          <div class="mt-6">
+            <div class="text-xs font-black tracking-widest uppercase text-gray-500">A dor</div>
+            <p class="mt-2 text-gray-200">Risco de atraso, falta de evidência, e retrabalho em cima da hora.</p>
+          </div>
+
+          <div class="mt-5">
+            <div class="text-xs font-black tracking-widest uppercase text-gray-500">Como resolvemos</div>
+            <p class="mt-2 text-gray-200">Processo rastreável com SLA e transparência do que foi feito.</p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2 text-xs font-bold">
+            <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary-light">SLA</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary-light">Compliance</span>
+            <span class="px-2.5 py-1 rounded-full bg-primary/15 text-primary-light">Rastreabilidade</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE ENTREGAMOS -->
+  <section class="py-20 bg-white border-b-8 border-dark">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl">
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-dark">O que o B20 entrega</h2>
+        <p class="mt-4 text-gray-600 text-lg">Sem texto longo — só o que importa.</p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="rounded-brutalist border-2 border-dark bg-white p-7 shadow-[8px_8px_0px_#111]">
+          <div class="text-sm font-black uppercase tracking-wider text-gray-500">Operação</div>
+          <ul class="mt-4 space-y-3 text-gray-700">
+            <li>• Recrutamento e seleção de testadores</li>
+            <li>• Rodadas com cadência e status</li>
+            <li>• Comunicação e follow-up padronizados</li>
+          </ul>
+        </div>
+        <div class="rounded-brutalist border-2 border-dark bg-white p-7 shadow-[8px_8px_0px_#111]">
+          <div class="text-sm font-black uppercase tracking-wider text-gray-500">Evidências</div>
+          <ul class="mt-4 space-y-3 text-gray-700">
+            <li>• Feedback organizado por rodada/app</li>
+            <li>• Logs e rastreabilidade do processo</li>
+            <li>• Checklist do que foi concluído</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 rounded-brutalist border-4 border-dark bg-dark text-white p-10 shadow-[12px_12px_0px_#135bec]">
+        <h3 class="text-2xl md:text-3xl font-black">Quer iniciar agora?</h3>
+        <p class="mt-2 text-gray-300">Em 1 minuto você explica o cenário e eu te digo o próximo passo.</p>
+        <div class="mt-6">
+          <a href={whatsappUrl} class="btn-whatsapp" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
