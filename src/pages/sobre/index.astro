@@ -1,26 +1,18 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Sobre Nós | All Solution Systems" description="Conheça a história e inovação por trás da All Solution Systems.">
-  <section class="container" style="padding: var(--spacing-12) var(--spacing-4);">
-    <h1>Sobre a Empresa</h1>
-    <div style="margin-top: var(--spacing-8); display: grid; grid-template-columns: 1fr; gap: var(--spacing-8);">
-      <article>
-        <p style="color: var(--color-text-muted); font-size: 1.125rem; line-height: 1.6;">
-          Fundada com a premissa de facilitar o lado técnico complexo da gestão e da tecnologia através de automação contínua. 
-          Acreditamos em desenvolver ferramentas limpas, robustas e focadas estritamente na conversão e praticidade.
-        </p>
-      </article>
-      <!-- Espaço para fotos de infra, time ou histórico no futuro -->
-      <aside style="background-color: var(--color-background-alt); padding: var(--spacing-8); border-radius: var(--radius-lg);">
-        <h3>Nossos Valores</h3>
-        <ul style="margin-top: var(--spacing-4); padding-left: var(--spacing-4); color: var(--color-text-muted);">
-          <li style="margin-bottom: var(--spacing-2);">Eficiência Operacional em tudo.</li>
-          <li style="margin-bottom: var(--spacing-2);">Tecnologia sem ruídos e sob medida.</li>
-          <li style="margin-bottom: var(--spacing-2);">Experiência focada no resultado do seu cliente final.</li>
-        </ul>
-      </aside>
+<MainLayout 
+  title="Sobre a All Solution Systems" 
+  description="Histórico, time, metodologia e filosofia técnica que sustentam nossos códigos."
+>
+  <section class="py-24 bg-dark text-white min-h-[70vh] flex flex-col justify-center text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-8">Nossa Engenharia</h1>
+      <div class="max-w-3xl mx-auto text-left space-y-6 text-gray-300 text-lg">
+        <p>A All Solution Systems foi forjada com a premissa fundamental de que sistemas precisam nascer limpos, previsíveis e blindados desde o seu núcleo (Core).</p>
+        <p>Nossa fundação técnica rejeita estritamente soluções de mercado "one size fits all" (tamanho único). Arquitetamos software como infraestrutura crítica, implementando telemetria avançada, tolerância a falhas e estratégias DevOps implacáveis visando rentabilidade nas operações de quem contrata.</p>
+      </div>
     </div>
   </section>
 </MainLayout>

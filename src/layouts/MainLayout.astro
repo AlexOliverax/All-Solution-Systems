@@ -1,5 +1,7 @@
 ---
 import BaseHead from '../components/layout/BaseHead.astro';
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import SiteFooter from '../components/layout/SiteFooter.astro';
 import '../assets/css/global.css';
 
 export interface Props {
@@ -17,10 +19,10 @@ const { title, description, image } = Astro.props;
     <BaseHead title={title} description={description} image={image} />
   </head>
   <body>
-    <!-- <SiteHeader /> -->
-    <main id="main-content">
+    <SiteHeader />
+    <main id="main-content" class="min-h-screen">
       <slot />
     </main>
-    <!-- <SiteFooter /> -->
+    <SiteFooter />
   </body>
 </html>

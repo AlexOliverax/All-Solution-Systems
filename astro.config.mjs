@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  // Configuração padrão. Permite build SSG sem problemas na VPS
+  integrations: [tailwind()]
 });

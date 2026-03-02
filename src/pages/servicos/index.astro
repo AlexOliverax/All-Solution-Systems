@@ -1,44 +1,42 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import { getWhatsAppUrl, CONTACT_INFO } from '../assets/js/contact-utils';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getWhatsAppUrl } from '../../assets/js/contact-utils';
 
-const waUrl = getWhatsAppUrl(CONTACT_INFO.whatsapp.defaultMessage);
+const whatsappUrl = getWhatsAppUrl('Olá, gostaria de saber mais sobre o escopo dos serviços que a All Solution Systems oferece.');
 ---
 
-<MainLayout title="Soluções e Serviços" description="Conheça todos os serviços de tecnologia e integração da All Solution Systems.">
-  <section class="container" style="padding: var(--spacing-12) var(--spacing-4);">
-    <h1>Nossos Serviços</h1>
-    <p style="margin-top: var(--spacing-4); margin-bottom: var(--spacing-8); color: var(--color-text-muted); max-width: 700px;">
-      Desenvolvemos arquiteturas tecnológicas para empresas que desejam escalar. Nossas soluções são divididas entre produtos (B20, Agendamentos) e Integrações dedicadas.
-    </p>
+<MainLayout 
+  title="Serviços Profissionais em Engenharia de Software" 
+  description="Consultoria, desenvolvimento, arquitetura e integrações via All Solution Systems."
+>
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-black text-dark mb-6 tracking-tight">Expertise Direcionada</h1>
+        <p class="text-xl text-gray-600">Não somos uma agência digital. Somos uma assessoria de engenharia de software especializada na otimização profunda dos fluxos de dados do seu ecossistema.</p>
+      </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6);">
-      <!-- Card mock 1 -->
-      <article style="padding: var(--spacing-6); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
-        <h3>Sistemas de Agendamento</h3>
-        <p style="color: var(--color-text-muted); margin-top: var(--spacing-2); margin-bottom: var(--spacing-4);">
-          Atenda seus leads automaticamente. Integração direta com sua agenda Google e funil de CRM.
-        </p>
-        <a href="/agendamento" style="color: var(--color-primary); font-weight: 500;">Saber mais &rarr;</a>
-      </article>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Servico 1 -->
+        <div class="p-8 border border-gray-200 rounded-brutalist hover:border-primary transition-colors bg-gray-50 flex flex-col justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-dark mb-4">Software Dedicado (SaaS B2B)</h2>
+            <p class="text-gray-600 mb-6">Desenvolvemos plataformas escalares que nascem preparadas para lidar com alta concorrência e big data. Utilizando cloud-native patterns.</p>
+          </div>
+        </div>
 
-      <!-- Card mock 2 -->
-      <article style="padding: var(--spacing-6); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
-        <h3>Produtos B20</h3>
-        <p style="color: var(--color-text-muted); margin-top: var(--spacing-2); margin-bottom: var(--spacing-4);">
-          Ecossistema completo de gestão comercial e rastreamento.
-        </p>
-        <a href="/b20" style="color: var(--color-primary); font-weight: 500;">Saber mais &rarr;</a>
-      </article>
-
-      <!-- Card mock 3 -->
-      <article style="padding: var(--spacing-6); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
-        <h3>Soluções Sob Medida</h3>
-        <p style="color: var(--color-text-muted); margin-top: var(--spacing-2); margin-bottom: var(--spacing-4);">
-           Aplicações robustas concebidas especialmente para a operação da sua indústria ou negócio local.
-        </p>
-        <a href={waUrl} target="_blank" style="color: var(--color-whatsapp); font-weight: 500;">Falar no WA &rarr;</a>
-      </article>
+        <!-- Servico 2 -->
+        <div class="p-8 border border-gray-200 rounded-brutalist hover:border-primary transition-colors bg-gray-50 flex flex-col justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-dark mb-4">Automação de Backoffice</h2>
+            <p class="text-gray-600 mb-6">Integrações robustas para erradicar o trabalho manual da sua equipe, interligando CRMs, ERPs e ferramentas financeiras com fluxos seguros.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-16">
+         <a href={whatsappUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">Solicitar Análise de Escopo</a>
+      </div>
     </div>
   </section>
 </MainLayout>

@@ -1,26 +1,35 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import { getWhatsAppUrl, CONTACT_INFO } from '../assets/js/contact-utils';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getWhatsAppUrl } from '../../assets/js/contact-utils';
 
-const waUrl = getWhatsAppUrl(CONTACT_INFO.whatsapp.defaultMessage);
+const whatsappUrl = getWhatsAppUrl('Olá, me interessei pelos produtos proprietários oferecidos no site.');
 ---
 
-<MainLayout title="Produtos | All Solution Systems" description="Nossos produtos">
-  <section class="container" style="padding: var(--spacing-12) var(--spacing-4);">
-    <h1>Nossos Produtos</h1>
-    <p style="margin-top: var(--spacing-4); color: var(--color-text-muted);">
-      Visão geral das nossas ferramentas tecnológicas. <a href={waUrl} target="_blank" style="color: var(--color-primary); text-decoration: underline;">Fale com um consultor</a>.
-    </p>
+<MainLayout 
+  title="Nossos Produtos e Plataformas" 
+  description="Produtos internos desenvolvidos pela All Solution Systems para aumentar a rentabilidade das empresas parceiras."
+>
+  <section class="py-24 bg-dark text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-black mb-12">Produtos Desbloqueadores de Crescimento</h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-16">
+        Conheça nossos motores proprietários, criados a partir das necessidades exclusivas observadas ao longo da evolução dos nossos clientes parceiros.
+      </p>
 
-    <!-- Exemplo listando o B20 como sub-produto (Nginx/SSG) -->
-    <div style="margin-top: var(--spacing-8);">
-      <article style="padding: var(--spacing-6); background: var(--color-background-alt); border-radius: var(--radius-md);">
-        <h2>O Ecossistema B20</h2>
-         <p style="margin-top: var(--spacing-2); margin-bottom: var(--spacing-4); color: var(--color-text-muted);">
-            Descubra as vantagens do nosso produto base.
-         </p>
-         <a href="/b20" class="btn btn-primary" style="background-color: var(--color-primary); color: white; padding: var(--spacing-2) var(--spacing-4); border-radius: var(--radius-sm); display: inline-block;">Ver Detalhes Oficiais</a>
-      </article>
+      <!-- Produto Hero CTA -->
+      <div class="bg-primary p-12 rounded-brutalist text-left max-w-4xl mx-auto shadow-2xl relative overflow-hidden flex flex-col justify-center">
+        <!-- SVG Decorator -->
+        <svg class="absolute -top-24 -right-24 text-white opacity-10 w-96 h-96 transform rotate-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM15.86 15.46L14.4 17.33C14.28 17.48 14.07 17.5 13.9 17.4C11.83 16.2 10.12 14.49 8.92 12.42C8.82 12.25 8.84 12.04 8.99 11.92L10.86 10.46C11.02 10.33 11.23 10.35 11.36 10.48L12.56 12.08C12.69 12.25 12.65 12.48 12.48 12.58L11.75 13.01C12.16 13.92 12.89 14.65 13.8 15.06L14.23 14.33C14.33 14.16 14.56 14.12 14.73 14.25L16.33 15.45C16.46 15.58 16.48 15.79 16.35 15.95L15.86 15.46Z" /></svg>
+        
+        <div class="relative z-10">
+          <span class="inline-block py-1 px-3 bg-white text-dark text-sm font-bold tracking-wider uppercase mb-6 rounded-soft">Flagship</span>
+          <h2 class="text-3xl md:text-5xl font-black mb-4">Framework B20</h2>
+          <p class="text-white text-lg mb-8 max-w-lg opacity-90">O ecossistema base testado em batalha que sustenta os aplicativos modernos mais exigentes.</p>
+          <a href="/b20/" class="btn-secondary text-dark border-none bg-white font-bold w-max">
+            Explorar Tecnologia
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </MainLayout>

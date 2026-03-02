@@ -1,51 +1,50 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import QuickContactForm from '../components/marketing/QuickContactForm.astro';
-import { CONTACT_INFO } from '../assets/js/contact-utils';
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getWhatsAppUrl, CONTACT_INFO } from '../../assets/js/contact-utils';
+
+const whatsappUrl = getWhatsAppUrl('Desejo iniciar um atendimento via canal de Contato Oficial.');
+const telegramUrl = CONTACT_INFO.telegram.url;
 ---
 
-<MainLayout title="Fale Conosco | All Solution Systems" description="Entre em contato com nossa equipe para conversarmos sobre sua solução.">
-  <section class="container" style="padding: var(--spacing-12) var(--spacing-4); max-width: 900px;">
-    
-    <div style="display: grid; grid-template-columns: 1fr; gap: var(--spacing-12);">
+<MainLayout 
+  title="Contato Oficial e Atendimento Especializado" 
+  description="Fale diretamente com os especialistas da All Solution Systems para iniciar seu projeto ou obter suporte avançado na sua estrutura."
+>
+  <section class="py-24 bg-white relative overflow-hidden">
+    <!-- Grid Base -->
+    <div class="container mx-auto px-4 z-10 relative">
       
-      <div>
-        <h1>Fale Conosco</h1>
-        <p style="color: var(--color-text-muted); margin-top: var(--spacing-4); margin-bottom: var(--spacing-8);">
-          Deixe nossa equipe qualificar seu projeto ou agende diretamente nos canais abaixo:
+      <div class="max-w-4xl mx-auto">
+        <span class="inline-block py-1 px-3 bg-dark text-white text-sm font-bold tracking-wider uppercase mb-6 rounded-brutalist">Fale Conosco</span>
+        <h1 class="text-4xl md:text-6xl font-black text-dark tracking-tighter mb-8">
+          Pronto para dar o <br/>
+          <span class="text-primary">Próximo Passo?</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-16 leading-relaxed">
+          Nossa equipe de engenharia e suporte atende demandas exclusivas de clientes em todo território nacional. Escolha o canal de sua preferência para alinhamento rápido.
         </p>
-        <ul style="list-style: none; padding: 0;">
-           <li style="margin-bottom: var(--spacing-4);">
-            <strong>WhatsApp:</strong> <br />
-            <a href={CONTACT_INFO.whatsapp.baseUrl} target="_blank" style="color: var(--color-primary); font-weight: 500;">
-              Chamar agora
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- WhatsApp Block -->
+          <div class="p-8 border-4 border-dark rounded-brutalist shadow-[12px_12px_0px_#135bec] bg-white transform transition-transform hover:-translate-y-2">
+            <h2 class="text-2xl font-black mb-4 uppercase">WhatsApp Oficial</h2>
+            <p class="text-gray-600 mb-8">Atendimento rápido, ideal para novos projetos, suporte rápido ou tirar dúvidas imediatas de B20.</p>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full">
+              Chamar no WhatsApp
             </a>
-           </li>
-           <li style="margin-bottom: var(--spacing-4);">
-            <strong>Telegram:</strong> <br />
-            <a href={CONTACT_INFO.telegram.url} target="_blank" style="color: var(--color-primary); font-weight: 500;">
-              @Alexoliver191976
+          </div>
+
+          <!-- Telegram Block -->
+          <div class="p-8 border-4 border-gray-200 rounded-brutalist hover:border-dark transition-colors bg-white">
+            <h2 class="text-2xl font-black mb-4 uppercase">Canal Telegram</h2>
+            <p class="text-gray-600 mb-8">Para conversas corporativas, envio de payloads maiores ou preferência restrita de infraestrutura do seu time.</p>
+            <a href={telegramUrl} target="_blank" rel="noopener noreferrer" class="btn-primary w-full bg-dark hover:bg-dark-light">
+              Iniciar Chat no Telegram
             </a>
-           </li>
-        </ul>
+          </div>
+        </div>
       </div>
-      
-      <!-- Qualificação Rapida  -->
-      <div style="background-color: var(--color-background-alt); padding: var(--spacing-6); border-radius: var(--radius-lg);">
-        <h3 style="margin-bottom: var(--spacing-4);">Não encontrou o que queria? Envie os dados:</h3>
-        <QuickContactForm />
-      </div>
-      
+
     </div>
   </section>
 </MainLayout>
-
-<!-- Responsividade Simples -->
-<style>
-  @media (min-width: 768px) {
-    div[style*="display: grid"] {
-      grid-template-columns: 1fr 1.5fr;
-      align-items: start;
-    }
-  }
-</style>

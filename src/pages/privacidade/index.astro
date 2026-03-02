@@ -1,26 +1,27 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Políticas de Privacidade | All Solution Systems" description="Nossas políticas de privacidade e proteção de dados." canonicalURL="https://allsolutionsystems.com.br/privacidade">
-  <article class="container" style="padding: var(--spacing-12) var(--spacing-4); max-width: 800px;">
-    <h1 style="margin-bottom: var(--spacing-6);">Políticas de Privacidade</h1>
-    
-    <div class="prose" style="color: var(--color-text-muted); line-height: 1.8;">
-      <p style="margin-bottom: var(--spacing-4);">
-        A sua privacidade é importante para nós. É política da All Solution Systems respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site, e outros sites que possuímos e operamos.
-      </p>
-
-      <h2 style="color: var(--color-text-main); margin-top: var(--spacing-8); margin-bottom: var(--spacing-4);">Informações que coletamos</h2>
-      <p style="margin-bottom: var(--spacing-4);">
-        O uso de formulários rápidos (redirecionamento WhatsApp) não armazena dados em nossos bancos relacionais por padrão, todo processamento primário da conversa é passado diretamente por criptografia E2EE do WhatsApp / Meta.
-      </p>
-
-      <h2 style="color: var(--color-text-main); margin-top: var(--spacing-8); margin-bottom: var(--spacing-4);">Segurança</h2>
-      <p style="margin-bottom: var(--spacing-4);">
-        Nossa arquitetura e páginas são distribuídas estaticamente para mitigar ataques comuns de injeção e sequestro de sessão. 
-        Links externos e redirecionamentos seguem rígidas permissões HTTP e políticas de mesma origem adequadas.
-      </p>
+<MainLayout 
+  title="Política de Privacidade Legal e Proteção LGPD" 
+  description="Tratamento, armazenamento e transparência de dados pela nossa Engenharia."
+>
+  <section class="py-24 bg-white text-dark min-h-[70vh]">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h1 class="text-4xl font-black mb-8 border-b-4 border-dark pb-4">Política de Privacidade</h1>
+      
+      <div class="prose prose-lg text-gray-700 max-w-none">
+        <p class="font-bold">Atualizada em Março de 2026</p>
+        
+        <h2 class="text-2xl font-bold mt-8 mb-4">1. Nível de Telemetria</h2>
+        <p>A All Solution Systems não realiza coleta massiva sem auditoria. Registramos apenas métricas de segurança essenciais (DDoS prevention logs) não comercializados externamente em hipótese alguma.</p>
+        
+        <h2 class="text-2xl font-bold mt-8 mb-4">2. Integrações Terceiras e Sub-Processadores</h2>
+        <p>A interface com WhatsApp e Telegram não coleta a meta-chave de encriptação antes de atingir as plataformas oficios. Nós dependemos estritamente dos fallbacks padronizados por esses prestadores.</p>
+        
+        <h2 class="text-2xl font-bold mt-8 mb-4">3. LGPD / Contacto do DPO</h2>
+        <p>Data Protection Officer (DPO): dpo@allsolution-systems.com<br/>Prazo de resposta legal de anonimização: 17h úteis.</p>
+      </div>
     </div>
-  </article>
+  </section>
 </MainLayout>
