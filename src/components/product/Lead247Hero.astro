@@ -83,9 +83,39 @@ const NICHOS = [
               </label>
             </div>
 
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm font-semibold text-premium-ink">Objetivo principal</span>
+                <select name="goal" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40">
+                  <option value="agendamento">Agendamento</option>
+                  <option value="orcamento">Orçamento</option>
+                  <option value="suporte">Suporte / Dúvidas</option>
+                  <option value="followup">Follow-up / Reativação</option>
+                </select>
+              </label>
+
+              <label class="block">
+                <span class="text-sm font-semibold text-premium-ink">Volume (mês)</span>
+                <select name="volume" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40">
+                  <option value="ate_30">Até 30</option>
+                  <option value="31_100">31–100</option>
+                  <option value="100_plus">100+</option>
+                </select>
+              </label>
+            </div>
+
             <label class="block">
-              <span class="text-sm font-semibold text-premium-ink">O que você quer automatizar?</span>
-              <textarea name="message" required rows={4} class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40" placeholder="Ex.: agendamento + confirmação + lembretes + orçamento + follow-up" />
+              <span class="text-sm font-semibold text-premium-ink">Canal</span>
+              <select name="channel" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40">
+                <option value="site_email">Site + E-mail</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="ambos">Site + WhatsApp</option>
+              </select>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-semibold text-premium-ink">Descreva o caso (1–2 frases)</span>
+              <textarea name="message" required rows={4} class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40" placeholder="Ex.: Quero agendamento + confirmação automática e reduzir no-show." />
             </label>
 
             <!-- honeypot anti-spam -->
@@ -136,6 +166,9 @@ const NICHOS = [
           phone: String(data.phone || ''),
           company: String(data.company || ''),
           nicho: String(data.nicho || ''),
+          goal: String(data.goal || ''),
+          volume: String(data.volume || ''),
+          channel: String(data.channel || ''),
           message: String(data.message || ''),
           website: String(data.website || ''),
           consent: data.consent === 'on',
