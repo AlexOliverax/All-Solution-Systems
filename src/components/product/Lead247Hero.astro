@@ -1,0 +1,197 @@
+---
+// Lead 24/7 hero + form (MVP)
+const WEBHOOK_URL = 'https://n8n.allsolutionsystems.com.br/webhook/lead-247';
+const NICHOS = [
+  'Estética',
+  'Clínica',
+  'Pet',
+  'Assistência celular',
+  'Automação/Robótica',
+  'Outro',
+];
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-brand-purple/10 to-white">
+  <div class="container mx-auto px-4 py-16 md:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-7">
+        <div class="chip-premium">Produto</div>
+        <h1 class="mt-6 text-4xl md:text-6xl font-black tracking-tight text-premium-ink">
+          Menos caos no atendimento. <span class="text-brand-blue">Mais conversão.</span> 24/7.
+        </h1>
+        <p class="mt-5 text-lg md:text-xl text-gray-700 max-w-2xl">
+          Diagnóstico gratuito (30 min) + uma proposta automática (Lite/Standard/Pro) baseada no seu caso.
+          A automação registra tudo e você só entra por exceção.
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
+          <div class="card-premium p-5">
+            <div class="text-sm text-gray-500">Resultado</div>
+            <div class="mt-1 font-bold text-premium-ink">Menos no‑show e mais conversão</div>
+          </div>
+          <div class="card-premium p-5">
+            <div class="text-sm text-gray-500">Operação</div>
+            <div class="mt-1 font-bold text-premium-ink">Respostas rápidas e consistentes</div>
+          </div>
+          <div class="card-premium p-5">
+            <div class="text-sm text-gray-500">Controle</div>
+            <div class="mt-1 font-bold text-premium-ink">Leads registrados no Notion</div>
+          </div>
+          <div class="card-premium p-5">
+            <div class="text-sm text-gray-500">Sinalização</div>
+            <div class="mt-1 font-bold text-premium-ink">Alertas no Telegram</div>
+          </div>
+        </div>
+
+        <p class="mt-7 text-sm text-gray-500">
+          MVP: entrada por formulário do site → automação no n8n → registro + alerta. WhatsApp pode entrar depois (oficial).
+        </p>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="card-premium p-7 md:p-8">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-black text-premium-ink">Agendar diagnóstico gratuito (30 min)</h2>
+              <p class="mt-2 text-gray-600">Preencha o formulário. Você recebe uma proposta automática (com plano e preço sugeridos).</p>
+            </div>
+            <div class="chip-premium">30 min</div>
+          </div>
+
+          <form id="lead247" class="mt-6 grid grid-cols-1 gap-4">
+            <label class="block">
+              <span class="text-sm font-semibold text-premium-ink">Seu nome</span>
+              <input name="name" required class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40" placeholder="Alex" />
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-semibold text-premium-ink">E-mail</span>
+              <input name="email" type="email" required class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40" placeholder="voce@empresa.com" />
+            </label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm font-semibold text-premium-ink">WhatsApp (opcional)</span>
+                <input name="phone" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40" placeholder="(11) 9xxxx-xxxx" />
+              </label>
+
+              <label class="block">
+                <span class="text-sm font-semibold text-premium-ink">Nicho</span>
+                <select name="nicho" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40">
+                  {NICHOS.map((n) => <option value={n}>{n}</option>)}
+                </select>
+              </label>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="block">
+                <span class="text-sm font-semibold text-premium-ink">Objetivo principal</span>
+                <select name="goal" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40">
+                  <option value="agendamento">Agendamento</option>
+                  <option value="orcamento">Orçamento</option>
+                  <option value="suporte">Suporte / Dúvidas</option>
+                  <option value="followup">Follow-up / Reativação</option>
+                </select>
+              </label>
+
+              <label class="block">
+                <span class="text-sm font-semibold text-premium-ink">Volume (mês)</span>
+                <select name="volume" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40">
+                  <option value="ate_30">Até 30</option>
+                  <option value="31_100">31–100</option>
+                  <option value="100_plus">100+</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="block">
+              <span class="text-sm font-semibold text-premium-ink">Canal</span>
+              <select name="channel" class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40">
+                <option value="site_email">Site + E-mail</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="ambos">Site + WhatsApp</option>
+              </select>
+            </label>
+
+            <label class="block">
+              <span class="text-sm font-semibold text-premium-ink">Descreva o caso (1–2 frases)</span>
+              <textarea name="message" required rows={4} class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40" placeholder="Ex.: Quero agendamento + confirmação automática e reduzir no-show." />
+            </label>
+
+            <!-- honeypot anti-spam -->
+            <label class="hidden" aria-hidden="true">
+              <span>Website</span>
+              <input name="website" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <label class="flex items-start gap-3 text-sm text-gray-600">
+              <input name="consent" type="checkbox" required class="mt-1" />
+              <span>Autorizo o uso dos dados para retorno do contato (LGPD).</span>
+            </label>
+
+            <button type="submit" class="btn-primary w-full">Receber proposta automática</button>
+
+            <p id="lead247_status" class="text-sm text-gray-600"></p>
+          </form>
+
+          <div class="mt-6 text-xs text-gray-500">
+            Ao enviar, você recebe confirmação por e-mail e nós registramos o lead automaticamente.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('lead247');
+      const statusEl = document.getElementById('lead247_status');
+      if (!form) return;
+
+      const WEBHOOK_URL = ${JSON.stringify(WEBHOOK_URL)};
+
+      function setStatus(msg, kind) {
+        statusEl.textContent = msg;
+        statusEl.className = 'text-sm ' + (kind === 'ok' ? 'text-green-700' : kind === 'err' ? 'text-red-700' : 'text-gray-600');
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        setStatus('Enviando…', '');
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        const payload = {
+          name: String(data.name || ''),
+          email: String(data.email || ''),
+          phone: String(data.phone || ''),
+          company: String(data.company || ''),
+          nicho: String(data.nicho || ''),
+          goal: String(data.goal || ''),
+          volume: String(data.volume || ''),
+          channel: String(data.channel || ''),
+          message: String(data.message || ''),
+          website: String(data.website || ''),
+          consent: data.consent === 'on',
+          source: 'site_form',
+          pageUrl: window.location.href,
+          createdAt: new Date().toISOString(),
+        };
+
+        try {
+          const res = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          setStatus('Recebido! Em instantes você vai receber uma confirmação por e-mail.', 'ok');
+          form.reset();
+        } catch (err) {
+          console.error(err);
+          setStatus('Falhou ao enviar. Tente novamente em alguns segundos.', 'err');
+        }
+      });
+    })();
+  </script>
+</section>
