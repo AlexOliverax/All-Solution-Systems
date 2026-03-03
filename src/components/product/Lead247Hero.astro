@@ -142,13 +142,14 @@ const NICHOS = [
     </div>
   </div>
 
-  <script is:inline>
+  <script is:inline define:vars={{ WEBHOOK_URL }}>
     (function () {
       const form = document.getElementById('lead247');
       const statusEl = document.getElementById('lead247_status');
       if (!form) return;
 
-      const WEBHOOK_URL = ${JSON.stringify(WEBHOOK_URL)};
+      // injected by Astro via define:vars
+      const webhookUrl = WEBHOOK_URL;
 
       function setStatus(msg, kind) {
         statusEl.textContent = msg;
@@ -178,7 +179,7 @@ const NICHOS = [
         };
 
         try {
-          const res = await fetch(WEBHOOK_URL, {
+          const res = await fetch(webhookUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
