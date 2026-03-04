@@ -20,8 +20,10 @@ const NICHOS = [
           Menos no‑show, <span class="text-brand-blue">mais conversão</span> — com diagnóstico grátis em 30 min e automação <span class="text-brand-purple">24/7</span>.
         </h1>
         <p class="mt-5 text-lg md:text-xl text-gray-700 max-w-2xl">
-          Diagnóstico grátis em 30 min + proposta automática personalizada (Lite/Standard/Pro).
-          Organize o atendimento e responda rápido — sem trabalho manual.
+          Diagnóstico grátis em 30 min + proposta automática personalizada. Acabe com o caos no WhatsApp e feche mais vendas sem esforço manual.
+        </p>
+        <p class="mt-3 text-base md:text-lg text-gray-600 max-w-2xl">
+          Você recebe uma proposta automática (Lite/Standard/Pro) baseada no seu caso.
         </p>
 
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
@@ -342,7 +344,11 @@ const NICHOS = [
           });
 
           if (!res.ok) throw new Error('HTTP ' + res.status);
-          setStatus('Recebido! Em instantes você vai receber uma confirmação por e-mail.', 'ok');
+          setStatus('Recebido! Redirecionando…', 'ok');
+          // small delay so the user sees the confirmation
+          setTimeout(() => {
+            window.location.href = '/obrigado/';
+          }, 450);
           form.reset();
         } catch (err) {
           console.error(err);

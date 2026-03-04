@@ -1,0 +1,41 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getWhatsAppUrl } from '../../assets/js/contact-utils';
+
+const whatsappUrl = getWhatsAppUrl('Oi! Acabei de enviar o formulário do diagnóstico pelo site. Pode me orientar nos próximos passos?');
+---
+
+<MainLayout
+  title="Proposta a caminho"
+  description="Recebemos seus dados. Sua proposta automática está a caminho por e-mail."
+>
+  <section class="py-20 md:py-24 bg-gradient-to-b from-brand-purple/10 to-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl">
+        <div class="chip-premium">Tudo certo</div>
+        <h1 class="mt-6 text-4xl md:text-6xl font-black tracking-tight text-premium-ink">Proposta a caminho. Obrigado por preencher.</h1>
+        <p class="mt-5 text-lg md:text-xl text-gray-700">Você vai receber por e-mail uma proposta automática (Lite/Standard/Pro) baseada no seu caso.</p>
+
+        <div class="mt-10 card-premium p-8 bg-white/70 backdrop-blur">
+          <h2 class="text-2xl font-black text-premium-ink">Próximos passos</h2>
+          <ul class="mt-4 space-y-3 text-gray-700 leading-relaxed">
+            <li><strong>1)</strong> Verifique seu e-mail (e spam) — a proposta chega em minutos.</li>
+            <li><strong>2)</strong> Analise com calma o plano e os próximos passos recomendados.</li>
+            <li><strong>3)</strong> Se quiser acelerar, fale agora com um especialista.</li>
+          </ul>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a class="btn-primary w-full sm:w-auto" href={whatsappUrl} target="_blank" rel="noopener noreferrer">Falar com especialista agora</a>
+            <a class="btn-secondary w-full sm:w-auto" href="/">Voltar para o site</a>
+          </div>
+        </div>
+
+        <div class="mt-10 card-premium p-8">
+          <div class="chip-premium">Em breve</div>
+          <h2 class="mt-4 text-2xl font-black text-premium-ink">Veja um exemplo rápido do fluxo rodando</h2>
+          <p class="mt-2 text-gray-600">Assim que o vídeo estiver pronto, vamos colocar aqui (60–90s) mostrando a captura → registro → alerta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
