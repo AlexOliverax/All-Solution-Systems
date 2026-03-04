@@ -52,10 +52,34 @@ const NICHOS = [
         <div class="card-premium p-7 md:p-8">
           <div class="flex items-start justify-between gap-4">
             <div>
-              <h2 class="text-2xl font-black text-premium-ink">Agendar diagnóstico gratuito (30 min)</h2>
-              <p class="mt-2 text-gray-600">Preencha o formulário. Você recebe uma proposta automática (com plano e preço sugeridos).</p>
+              <h2 class="text-2xl font-black text-premium-ink">Diagnóstico gratuito (30 min)</h2>
+              <p class="mt-2 text-gray-600">Clique para abrir o formulário em uma janela. Você recebe uma proposta automática (Lite/Standard/Pro).</p>
             </div>
             <div class="chip-premium">30 min</div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 gap-4">
+            <button id="openLead247" type="button" class="btn-primary w-full">Abrir formulário do diagnóstico</button>
+            <p class="text-sm text-gray-600">Sem compromisso. Se não enxergarmos ganho claro, a gente te diz.</p>
+
+            <div class="mt-2 grid grid-cols-3 gap-3">
+              <img class="rounded-xl border border-gray-200" src="/assets/img/hero/automation-flow-v3.webp" alt="Exemplo de automação" loading="lazy" decoding="async" />
+              <img class="rounded-xl border border-gray-200" src="/assets/img/hero/automation-flow-v2.webp" alt="Exemplo de fluxo" loading="lazy" decoding="async" />
+              <img class="rounded-xl border border-gray-200" src="/assets/img/hero/automation-flow.webp" alt="Exemplo de integração" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <dialog id="lead247Modal" class="w-[min(860px,96vw)] rounded-2xl p-0 backdrop:bg-black/60">
+        <div class="card-premium p-6 md:p-8">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="chip-premium">Diagnóstico</div>
+              <h3 class="mt-4 text-2xl md:text-3xl font-black text-premium-ink">Agendar diagnóstico (30 min)</h3>
+              <p class="mt-2 text-gray-600">Preencha abaixo. Você recebe uma proposta automática por e-mail.</p>
+            </div>
+            <button id="closeLead247" type="button" class="btn-secondary">Fechar</button>
           </div>
 
           <form id="lead247" class="mt-6 grid grid-cols-1 gap-4">
@@ -118,7 +142,6 @@ const NICHOS = [
               <textarea name="message" required rows={4} class="mt-2 w-full rounded-xl border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40" placeholder="Ex.: Quero agendamento + confirmação automática e reduzir no-show." />
             </label>
 
-            <!-- honeypot anti-spam -->
             <label class="hidden" aria-hidden="true">
               <span>Website</span>
               <input name="website" tabindex="-1" autocomplete="off" />
@@ -130,15 +153,14 @@ const NICHOS = [
             </label>
 
             <button type="submit" class="btn-primary w-full">Receber proposta automática</button>
-
             <p id="lead247_status" class="text-sm text-gray-600"></p>
           </form>
 
           <div class="mt-6 text-xs text-gray-500">
-            Ao enviar, você recebe confirmação por e-mail e nós registramos o lead automaticamente.
+            Ao enviar, você recebe a proposta por e-mail e registramos o lead automaticamente.
           </div>
         </div>
-      </div>
+      </dialog>
     </div>
   </div>
 
@@ -150,6 +172,29 @@ const NICHOS = [
 
       // injected by Astro via define:vars
       const webhookUrl = WEBHOOK_URL;
+
+      const modal = document.getElementById('lead247Modal');
+      const openBtn = document.getElementById('openLead247');
+      const closeBtn = document.getElementById('closeLead247');
+
+      function openModal() {
+        if (!modal) return;
+        if (typeof modal.showModal === 'function') modal.showModal();
+        else modal.setAttribute('open', '');
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        if (typeof modal.close === 'function') modal.close();
+        else modal.removeAttribute('open');
+      }
+
+      openBtn?.addEventListener('click', openModal);
+      closeBtn?.addEventListener('click', closeModal);
+      modal?.addEventListener('click', (e) => {
+        // close when clicking backdrop
+        if (e.target === modal) closeModal();
+      });
 
       function setStatus(msg, kind) {
         statusEl.textContent = msg;
