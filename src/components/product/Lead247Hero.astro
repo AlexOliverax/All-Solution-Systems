@@ -60,6 +60,31 @@ const NICHOS = [
             <button id="openLead247" type="button" class="btn-primary w-full">Abrir diagnóstico gratuito (30 min)</button>
             <p class="text-sm text-gray-600 text-center">Sem compromisso. Se não enxergarmos ganho claro, a gente te diz.</p>
           </div>
+
+          <!-- Carousel (scroll-snap, no JS) -->
+          <div class="mt-6">
+            <div class="text-xs font-semibold text-gray-500 mb-2 text-center">Exemplos (arraste para o lado)</div>
+            <div class="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scroll-px-4 [-webkit-overflow-scrolling:touch]">
+              <div class="snap-start shrink-0 w-[min(520px,86vw)]">
+                <div class="rounded-2xl border border-gray-200 overflow-hidden bg-gray-50">
+                  <img class="w-full h-auto" src="/assets/img/hero/automation-flow-v3.webp" alt="Exemplo: captura e triagem" loading="lazy" decoding="async" />
+                </div>
+                <div class="mt-2 text-xs text-gray-500 text-center">Captura → triagem → proposta</div>
+              </div>
+              <div class="snap-start shrink-0 w-[min(520px,86vw)]">
+                <div class="rounded-2xl border border-gray-200 overflow-hidden bg-gray-50">
+                  <img class="w-full h-auto" src="/assets/img/hero/automation-flow-v2.webp" alt="Exemplo: registro e controle" loading="lazy" decoding="async" />
+                </div>
+                <div class="mt-2 text-xs text-gray-500 text-center">Registro no Notion + histórico</div>
+              </div>
+              <div class="snap-start shrink-0 w-[min(520px,86vw)]">
+                <div class="rounded-2xl border border-gray-200 overflow-hidden bg-gray-50">
+                  <img class="w-full h-auto" src="/assets/img/hero/automation-flow.webp" alt="Exemplo: alertas e operação" loading="lazy" decoding="async" />
+                </div>
+                <div class="mt-2 text-xs text-gray-500 text-center">Alertas no Telegram + exceções</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
