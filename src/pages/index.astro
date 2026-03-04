@@ -45,19 +45,34 @@ import Steps3Premium from '../components/premium/Steps3Premium.astro';
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="card-premium p-7">
-          <div class="chip-premium">Estética</div>
+          <div class="flex items-center justify-between gap-4">
+            <div class="chip-premium">Estética</div>
+            <div class="w-10 h-10 rounded-2xl bg-white border border-premium-stroke flex items-center justify-center text-brand-blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+            </div>
+          </div>
           <h3 class="mt-4 text-xl font-black text-premium-ink">Menos no‑show</h3>
-          <p class="mt-2 text-gray-600">Redução típica de <strong>até 75%</strong> no no‑show com confirmações e follow‑ups automáticos.</p>
+          <p class="mt-2 text-gray-600">Redução típica de <strong>até 75%</strong> no no‑show com confirmações e follow‑ups automáticos <span class="text-gray-500">(varia por operação)</span>.</p>
         </div>
         <div class="card-premium p-7">
-          <div class="chip-premium">Clínica / Pet</div>
+          <div class="flex items-center justify-between gap-4">
+            <div class="chip-premium">Clínica / Pet</div>
+            <div class="w-10 h-10 rounded-2xl bg-white border border-premium-stroke flex items-center justify-center text-brand-purple">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10"/><path d="M7 12h6"/></svg>
+            </div>
+          </div>
           <h3 class="mt-4 text-xl font-black text-premium-ink">Resposta rápida 24h</h3>
-          <p class="mt-2 text-gray-600">Tempo de resposta <strong>&lt; 2 min</strong> (típico) e leads quentes organizados no pipeline.</p>
+          <p class="mt-2 text-gray-600">Tempo de resposta típico <strong>&lt; 2 min</strong> e leads quentes organizados no pipeline <span class="text-gray-500">(varia por volume)</span>.</p>
         </div>
         <div class="card-premium p-7">
-          <div class="chip-premium">Assistência</div>
+          <div class="flex items-center justify-between gap-4">
+            <div class="chip-premium">Assistência</div>
+            <div class="w-10 h-10 rounded-2xl bg-white border border-premium-stroke flex items-center justify-center text-amber-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14.7 6.3-2.4-2.4a2 2 0 0 0-2.8 0L6.3 7.1a2 2 0 0 0 0 2.8l2.4 2.4"/><path d="m7.8 7.8 8.4 8.4"/><path d="M19 21l-2-2"/><path d="M17 19l2-2"/></svg>
+            </div>
+          </div>
           <h3 class="mt-4 text-xl font-black text-premium-ink">Orçamentos em minutos</h3>
-          <p class="mt-2 text-gray-600">Orçamentos enviados automaticamente e menos perda de cliente por demora no retorno.</p>
+          <p class="mt-2 text-gray-600">Orçamentos enviados automaticamente e menos perda de cliente por demora no retorno <span class="text-gray-500">(varia por operação)</span>.</p>
         </div>
       </div>
 
@@ -66,7 +81,7 @@ import Steps3Premium from '../components/premium/Steps3Premium.astro';
           <div>
             <div class="chip-premium">Como medimos</div>
             <h3 class="mt-4 text-2xl font-black text-premium-ink">Métricas que acompanham a operação</h3>
-            <p class="mt-2 text-gray-600">O objetivo é simples: menos perda, mais previsibilidade e atendimento consistente.</p>
+            <p class="mt-2 text-gray-600">Métricas observadas em operações reais — resultados variam conforme nicho, volume de mensagens e implementação.</p>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full md:w-auto">
             <div class="bg-white/70 backdrop-blur rounded-2xl border border-premium-stroke p-4">
@@ -76,6 +91,7 @@ import Steps3Premium from '../components/premium/Steps3Premium.astro';
             <div class="bg-white/70 backdrop-blur rounded-2xl border border-premium-stroke p-4">
               <div class="text-sm text-gray-500">No‑show</div>
               <div class="mt-1 text-xl font-black text-premium-ink">até 80%</div>
+              <div class="mt-1 text-xs text-gray-500">redução típica</div>
             </div>
             <div class="bg-white/70 backdrop-blur rounded-2xl border border-premium-stroke p-4">
               <div class="text-sm text-gray-500">Leads organizados</div>
