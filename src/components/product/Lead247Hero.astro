@@ -242,6 +242,35 @@ const NICHOS = [
       const openBtn = document.getElementById('openLead247');
       const closeBtn = document.getElementById('closeLead247');
 
+      // Mini-monitoramento (sem analytics externo): page view + cliques no CTA + submits (enviado no payload)
+      const METRICS_KEY = 'lead247_metrics_v1';
+      const todayKey = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+      function loadMetrics() {
+        try {
+          const raw = localStorage.getItem(METRICS_KEY);
+          const data = raw ? JSON.parse(raw) : {};
+          if (!data[todayKey]) data[todayKey] = { pageViews: 0, ctaClicks: 0, submits: 0 };
+          return data;
+        } catch {
+          return { [todayKey]: { pageViews: 0, ctaClicks: 0, submits: 0 } };
+        }
+      }
+
+      function saveMetrics(data) {
+        try {
+          localStorage.setItem(METRICS_KEY, JSON.stringify(data));
+        } catch {}
+      }
+
+      const metrics = loadMetrics();
+      // count one page view per browser session (avoid overcount on reload spam)
+      if (!sessionStorage.getItem('lead247_pv_counted')) {
+        metrics[todayKey].pageViews += 1;
+        sessionStorage.setItem('lead247_pv_counted', '1');
+        saveMetrics(metrics);
+      }
+
       function openModal() {
         if (!modal) return;
         if (typeof modal.showModal === 'function') modal.showModal();
@@ -254,7 +283,12 @@ const NICHOS = [
         else modal.removeAttribute('open');
       }
 
-      openBtn?.addEventListener('click', openModal);
+      openBtn?.addEventListener('click', () => {
+        const m = loadMetrics();
+        m[todayKey].ctaClicks += 1;
+        saveMetrics(m);
+        openModal();
+      });
       closeBtn?.addEventListener('click', closeModal);
       modal?.addEventListener('click', (e) => {
         // close when clicking backdrop
@@ -319,6 +353,7 @@ const NICHOS = [
         setStatus('Enviando…', '');
 
         const data = Object.fromEntries(new FormData(form).entries());
+        const m = loadMetrics();
         const payload = {
           name: String(data.name || ''),
           email: String(data.email || ''),
@@ -334,6 +369,11 @@ const NICHOS = [
           source: 'site_form',
           pageUrl: window.location.href,
           createdAt: new Date().toISOString(),
+          metrics: {
+            date: todayKey,
+            pageViews: m[todayKey]?.pageViews ?? null,
+            ctaClicks: m[todayKey]?.ctaClicks ?? null,
+          },
         };
 
         try {
@@ -344,6 +384,11 @@ const NICHOS = [
           });
 
           if (!res.ok) throw new Error('HTTP ' + res.status);
+          // increment submit counter (local)
+          const mm = loadMetrics();
+          mm[todayKey].submits += 1;
+          saveMetrics(mm);
+
           setStatus('Recebido! Redirecionando…', 'ok');
           // small delay so the user sees the confirmation
           setTimeout(() => {
