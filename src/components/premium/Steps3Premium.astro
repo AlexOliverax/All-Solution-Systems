@@ -9,10 +9,10 @@ export interface Step {
 const { title = 'Como funciona', subtitle = 'Em 3 passos simples', steps = [] as Step[] } = Astro.props;
 ---
 
-<section class="py-20 bg-premium-surface2">
+<section class="py-24 bg-gradient-to-b from-premium-surface2 to-white">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto">
-      <div class="chip-premium">🚀 {subtitle}</div>
+      <div class="chip-premium">{subtitle}</div>
       <h2 class="mt-6 text-4xl md:text-5xl font-black tracking-tight text-premium-ink">{title}</h2>
       <p class="mt-4 text-gray-600 text-lg">Conecte sua necessidade ao próximo passo. Sem textão, sem enrolação.</p>
     </div>
@@ -24,7 +24,11 @@ const { title = 'Como funciona', subtitle = 'Em 3 passos simples', steps = [] as
             {s.n}
           </div>
           <div class="pt-6 text-center">
-            <div class="text-3xl mb-4">{s.icon}</div>
+            <div class="mb-4 flex justify-center">
+              <div class="w-12 h-12 rounded-2xl bg-white border border-premium-stroke shadow-[0_14px_35px_rgba(15,23,42,0.08)] flex items-center justify-center text-brand-blue">
+                {s.icon ? <span class="block" set:html={s.icon} /> : null}
+              </div>
+            </div>
             <h3 class="text-2xl font-black text-premium-ink">{s.title}</h3>
             <p class="mt-3 text-gray-600 leading-relaxed">{s.desc}</p>
           </div>
