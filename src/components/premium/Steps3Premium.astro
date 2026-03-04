@@ -17,7 +17,15 @@ const { title = 'Como funciona', subtitle = 'Em 3 passos simples', steps = [] as
       <p class="mt-4 text-gray-600 text-lg">Conecte sua necessidade ao próximo passo. Sem textão, sem enrolação.</p>
     </div>
 
-    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="mt-12 relative">
+      <!-- flow line (desktop) -->
+      <div class="hidden md:block pointer-events-none absolute left-0 right-0 top-[92px]">
+        <svg viewBox="0 0 1200 40" class="w-full h-10" aria-hidden="true">
+          <path d="M60 20 C 220 20, 220 20, 380 20 S 540 20, 700 20 S 860 20, 1020 20 S 1140 20, 1140 20" stroke="rgba(59,130,246,0.35)" stroke-width="3" stroke-dasharray="6 10" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {steps.map((s) => (
         <div class="card-premium p-8 relative">
           <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-brand-purple to-brand-blue text-white font-black flex items-center justify-center shadow-[0_14px_35px_rgba(106,90,249,0.25)]">
@@ -34,6 +42,7 @@ const { title = 'Como funciona', subtitle = 'Em 3 passos simples', steps = [] as
           </div>
         </div>
       ))}
+      </div>
     </div>
   </div>
 </section>
